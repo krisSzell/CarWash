@@ -6,12 +6,14 @@ namespace CarWash.Core.Models
 {
     public class Reservation
     {
-        public int Id { get; set; }
-        public string UserId { get; set; }
-        public int ReservationDateId { get; set; }
-        public int ServiceId { get; set; }
-        public int StatusId { get; set; }
+        public Reservation()
+        {
 
-        public virtual Service Service { get; set; }
+        }
+
+        public int ReservationId { get; set; }
+
+        public Service Service { get; set; }
+
     }
 }

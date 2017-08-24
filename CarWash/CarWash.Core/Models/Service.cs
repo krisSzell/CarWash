@@ -8,9 +8,16 @@ namespace CarWash.Core.Models
 {
     public class Service
     {
-        public int Id { get; set; }
+        public Service()
+        {
+
+        }
+
+        public int ServiceId { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int DurationInMinutes { get; set; }
+
+        public ICollection<Reservation> Reservations { get; set; }
     }
 }
