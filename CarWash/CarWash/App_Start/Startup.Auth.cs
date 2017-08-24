@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using CarWash.Models;
+using CarWash.Core.Models;
+using CarWash.Persistence;
 
 namespace CarWash
 {

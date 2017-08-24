@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using CarWash.Models;
+using CarWash.Core.Models;
+using CarWash.Persistence;
 
 namespace CarWash
 {

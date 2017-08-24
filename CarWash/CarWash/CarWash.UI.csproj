@@ -195,7 +195,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -275,6 +274,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarWash.Core\CarWash.Core.csproj">
+      <Project>{775b9e12-cbc2-4fbd-a5ac-1d305dfb9f31}</Project>
+      <Name>CarWash.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarWash.Persistence\CarWash.Persistence.csproj">
+      <Project>{2fef04aa-f6ad-4b22-a818-c3327fa3e08c}</Project>
+      <Name>CarWash.Persistence</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

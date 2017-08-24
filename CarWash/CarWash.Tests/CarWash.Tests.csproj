@@ -91,9 +91,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CarWash\CarWash.csproj">
+    <ProjectReference Include="..\CarWash\CarWash.UI.csproj">
       <Project>{F655897E-19B9-4A20-A4D4-8642B8FD141C}</Project>
-      <Name>CarWash</Name>
+      <Name>CarWash.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
