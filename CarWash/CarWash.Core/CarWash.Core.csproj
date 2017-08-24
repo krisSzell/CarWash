@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
