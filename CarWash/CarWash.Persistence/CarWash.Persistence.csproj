@@ -58,6 +58,10 @@
     <Compile Include="Migrations\201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.Designer.cs">
       <DependentUpon>201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708241651382_AddedOneToManyBetweenReservationsAndStatus.cs" />
+    <Compile Include="Migrations\201708241651382_AddedOneToManyBetweenReservationsAndStatus.Designer.cs">
+      <DependentUpon>201708241651382_AddedOneToManyBetweenReservationsAndStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IReservationsRepository.cs" />
@@ -75,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.resx">
       <DependentUpon>201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708241651382_AddedOneToManyBetweenReservationsAndStatus.resx">
+      <DependentUpon>201708241651382_AddedOneToManyBetweenReservationsAndStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

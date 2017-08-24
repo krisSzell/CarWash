@@ -23,6 +23,7 @@ namespace CarWash.Persistence
 
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Service> Services { get; set; }
+        public DbSet<Status> Statuses { get; set; }
 
     }
 }

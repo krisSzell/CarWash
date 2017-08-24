@@ -14,6 +14,7 @@ namespace CarWash.Core.Models
         public int ReservationId { get; set; }
 
         public Service Service { get; set; }
+        public Status Status { get; set; }
 
     }
 }
