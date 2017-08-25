@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Migrations\201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.cs" />
     <Compile Include="Migrations\201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.Designer.cs">
       <DependentUpon>201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.cs</DependentUpon>
@@ -78,6 +79,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IReservationsRepository.cs" />
     <Compile Include="Repositories\ReservationsRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

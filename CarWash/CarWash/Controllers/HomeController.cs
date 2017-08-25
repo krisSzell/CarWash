@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarWash.Persistence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,13 @@ namespace CarWash.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IUnitOfWork _unitOfWork;
+
+        public HomeController()
+        {
+
+        }
+
         public ActionResult Index()
         {
             return View();
