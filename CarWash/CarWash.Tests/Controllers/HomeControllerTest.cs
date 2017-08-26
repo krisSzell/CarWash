@@ -5,14 +5,15 @@ using System.Text;
 using System.Web.Mvc;
 using CarWash;
 using CarWash.Controllers;
-using NUnit.Framework;
 using CarWash.Persistence;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CarWash.Tests.Controllers
 {
+    [TestClass]
     public class HomeControllerTest
     {
-        [Test]
+        [TestMethod]
         public void Index()
         {
             // Arrange
@@ -25,7 +26,7 @@ namespace CarWash.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
-        [Test]
+        [TestMethod]
         public void About()
         {
             // Arrange
@@ -38,7 +39,7 @@ namespace CarWash.Tests.Controllers
             Assert.AreEqual("Your application description page.", result.ViewBag.Message);
         }
 
-        [Test]
+        [TestMethod]
         public void Contact()
         {
             // Arrange
