@@ -16,5 +16,22 @@ namespace CarWash.Core.Models
 
         public int Hour { get; set; }
         public int Minute { get; set; }
+
+        public override string ToString()
+        {
+            string hour = Hour.ToString();
+            string minute = Minute.ToString();
+
+            if (Hour < 10)
+            {
+                hour = $"0{Hour}";
+            }
+            if (Minute < 10)
+            {
+                minute = $"0{Minute}";
+            }
+
+            return $"{hour}:{minute}";
+        }
     }
 }

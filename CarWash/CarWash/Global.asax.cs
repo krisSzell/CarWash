@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using CarWash.Core.UseCases.WorkDays;
 using CarWash.Persistence;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -15,6 +16,8 @@ namespace CarWash
             var builder = new ContainerBuilder();
             builder.RegisterControllers((typeof(MvcApplication).Assembly));
             builder.RegisterInstance<IUnitOfWork>(new UnitOfWork(new ApplicationDbContext()));
+            builder.RegisterInstance<IWorkDaysFormatter>(new WorkDaysFormatter());
+            builder.RegisterInstance<IWorkDaysFactory>(new WorkDaysFactory());
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarWash.Core.Models
 {
-    public class WorkDay
+    public class WorkDay : IWorkDay
     {
         private readonly int _startHour;
         private readonly int _endHour;
@@ -19,6 +19,22 @@ namespace CarWash.Core.Models
             _endHour = 16;
         }
 
+        public int GetMonth()
+        {
+            return _day.Month;
+        }
+        public int GetDay()
+        {
+            return _day.Day;
+        }
+        public int GetHour()
+        {
+            return _day.Hour;
+        }
+        public DayOfWeek GetDayOfWeek()
+        {
+            return _day.DayOfWeek;
+        }
         public List<WorkHour> GetRemainingHours()
         {
             int hour = setStartingHour();
@@ -62,7 +78,6 @@ namespace CarWash.Core.Models
 
             return hour;
         }
-
         private int setStartingMinute()
         {
             int min = 0;
