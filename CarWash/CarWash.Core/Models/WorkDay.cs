@@ -15,6 +15,8 @@ namespace CarWash.Core.Models
         public WorkDay(DateTime day)
         {
             _day = day;
+            _startHour = 8;
+            _endHour = 16;
         }
 
         public List<WorkHour> GetRemainingHours()
@@ -29,7 +31,7 @@ namespace CarWash.Core.Models
             {
                 for (int j = minute; j < 60; j += 15)
                 {
-                    result.Add(new WorkHour(hour, minute));
+                    result.Add(new WorkHour(i, j));
                 }
                 minute = 0;
             }
@@ -65,7 +67,7 @@ namespace CarWash.Core.Models
         {
             int min = 0;
             int currentMin = _day.Minute;
-            if (currentMin <= 15) min = 15;
+            if (currentMin <= 15 && currentMin > 0) min = 15;
             if (currentMin <= 30 && currentMin > 15) min = 30;
             if (currentMin <= 45 && currentMin > 30) min = 45;
             if (currentMin < 60 && currentMin > 45) min = 0;
