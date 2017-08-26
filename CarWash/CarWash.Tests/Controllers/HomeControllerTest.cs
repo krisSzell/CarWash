@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using CarWash;
 using CarWash.Controllers;
 using NUnit.Framework;
+using CarWash.Persistence;
 
 namespace CarWash.Tests.Controllers
 {
@@ -15,7 +16,7 @@ namespace CarWash.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(new UnitOfWork(new ApplicationDbContext()));
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -28,7 +29,7 @@ namespace CarWash.Tests.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(new UnitOfWork(new ApplicationDbContext()));
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -41,7 +42,7 @@ namespace CarWash.Tests.Controllers
         public void Contact()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(new UnitOfWork(new ApplicationDbContext()));
 
             // Act
             ViewResult result = controller.Contact() as ViewResult;

@@ -11,9 +11,9 @@ namespace CarWash.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController()
+        public HomeController(IUnitOfWork unitOfWork)
         {
-
+            _unitOfWork = unitOfWork;
         }
 
         public ActionResult Index()
