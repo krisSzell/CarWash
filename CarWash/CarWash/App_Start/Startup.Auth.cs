@@ -5,7 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using CarWash.Models;
+using CarWash.ViewModels;
 using CarWash.Core.Models;
 using CarWash.Persistence;
 

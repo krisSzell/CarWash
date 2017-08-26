@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace CarWash.Models
+namespace CarWash.ViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {
