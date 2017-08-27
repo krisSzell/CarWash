@@ -1,0 +1,10 @@
+.card {
+    cursor: pointer;
+}
+
+.card:hover {
+    color: #0056b3;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #ddd;
+}
