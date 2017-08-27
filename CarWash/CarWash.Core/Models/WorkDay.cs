@@ -54,7 +54,15 @@ namespace CarWash.Core.Models
 
             return result;
         }
+        public string GetDayDotMonthDescription()
+        {
+            string dayNo = GetDay() < 10 ? $"0{GetDay()}" : $"{GetDay()}";
+            string monthNo = GetMonth() < 10 ? $"0{GetMonth()}" : $"{GetMonth()}";
+            string dayRepresentation = dayNo + "." + monthNo;
+            return dayRepresentation;
+        }
         
+
         private int setStartingHour()
         {
             int hour;

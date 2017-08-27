@@ -7,6 +7,7 @@ using CarWash;
 using CarWash.Controllers;
 using CarWash.Persistence;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CarWash.Core.UseCases.WorkDays;
 
 namespace CarWash.Tests.Controllers
 {
@@ -17,7 +18,10 @@ namespace CarWash.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController(new UnitOfWork(new ApplicationDbContext()));
+            HomeController controller = new HomeController(
+                new UnitOfWork(new ApplicationDbContext()),
+                new WorkDaysFactory(),
+                new WorkDaysFormatter());
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -30,7 +34,10 @@ namespace CarWash.Tests.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController(new UnitOfWork(new ApplicationDbContext()));
+            HomeController controller = new HomeController(
+                new UnitOfWork(new ApplicationDbContext()),
+                new WorkDaysFactory(),
+                new WorkDaysFormatter());
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -43,7 +50,10 @@ namespace CarWash.Tests.Controllers
         public void Contact()
         {
             // Arrange
-            HomeController controller = new HomeController(new UnitOfWork(new ApplicationDbContext()));
+            HomeController controller = new HomeController(
+                new UnitOfWork(new ApplicationDbContext()),
+                new WorkDaysFactory(),
+                new WorkDaysFormatter());
 
             // Act
             ViewResult result = controller.Contact() as ViewResult;

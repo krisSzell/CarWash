@@ -20,6 +20,7 @@ namespace CarWash
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/tether.js",
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 

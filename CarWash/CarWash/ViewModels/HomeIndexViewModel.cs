@@ -1,4 +1,5 @@
 ﻿using CarWash.Core.Models;
+using CarWash.Core.UseCases.WorkDays;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,52 +9,29 @@ namespace CarWash.ViewModels
 {
     public class HomeIndexViewModel
     {
-        private IList<WorkDay> _upcomingWeekWorkingDays;
-        private IList<WorkHour> _workingHoursLeft;
+        private IWorkDaysFactory _factory;
+        private IWorkDaysFormatter _formatter;
+        public IList<WorkDay> WorkDays { get; set; }
+        public IList<WorkHour> WorkHoursLeft { get; set; }
 
-        public HomeIndexViewModel()
+
+        public HomeIndexViewModel(IWorkDaysFactory factory, IWorkDaysFormatter formatter)
         {
-            _upcomingWeekWorkingDays = new List<WorkDay>();
-            setUpcomingWeekWorkingDays();
+            _factory = factory;
+            _formatter = formatter;
+
+            WorkDays = factory.GetNext5WorkDays();
         }
 
-        public IList<string> GetUpcomingWeekDays()
+        public void SetWorkHoursLeft()
         {
-            var upcomingDays = new List<string>();
 
-            foreach (var day in _upcomingWeekWorkingDays)
-            {
-                string dayRepresentation = day.GetDay() + "." + day.GetMonth();
-                upcomingDays.Add(dayRepresentation);
-            }
-
-            return upcomingDays;
-        }
-        public IList<string> GetWorkingHoursLeft()
-        {
-            var workingHoursLeft = new List<string>();
-
-            foreach (var hour in _workingHoursLeft)
-            {
-                
-                workingHoursLeft.Add(hour.ToString());
-            }
-
-            return workingHoursLeft;
         }
 
-        private void setUpcomingWeekWorkingDays()
+        public void ChooseDay()
         {
-            for (int i = 0; i < 7; i++)
-            {
-                var date = new WorkDay(DateTime.Now.AddDays(i));
-                _upcomingWeekWorkingDays.Add(date);
-            }
+
         }
-        private void setCurrentDayWorkingHours()
-        {
-            var currentDay = new WorkDay(DateTime.Now);
-            _workingHoursLeft = currentDay.GetRemainingHours();
-        }
+
     }
 }
