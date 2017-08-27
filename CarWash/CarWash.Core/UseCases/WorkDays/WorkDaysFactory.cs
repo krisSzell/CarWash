@@ -30,12 +30,20 @@ namespace CarWash.Core.UseCases.WorkDays
             int count = 0;
             while (daysAdded < 5)
             {
-                var date = new WorkDay(DateTime.Now.AddDays(count++));
-                if (_workingDays.Any(wd => wd == date.GetDayOfWeek()))
+                var date = DateTime.Now;
+                var dayToAdd = new WorkDay(date);
+                if (count > 0)
                 {
-                    workDays.Add(date);
+                    date = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
+                    date = date.AddDays(count);
+                    dayToAdd = new WorkDay(date);
+                }
+                if (_workingDays.Any(wd => wd == dayToAdd.GetDayOfWeek()))
+                {
+                    workDays.Add(dayToAdd);
                     daysAdded++;
                 }
+                count++;
             }
 
             return workDays;

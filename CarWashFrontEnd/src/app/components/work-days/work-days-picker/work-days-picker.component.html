@@ -1,0 +1,13 @@
+<div *ngIf="daysLoaded      ">
+    <nav aria-label="days pagination">
+        <ul class="pagination pagination-lg">
+            <li [ngClass]="{'page-item':true, 'active':day.isSelected}" *ngFor="let day of workDays"><span class="page-link" (click)="select(day)">{{day|describe}}</span></li>
+        </ul>
+    </nav>
+    <div class="card hide-overflow">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item text-center" *ngFor="let day of selectedDay.workHours">{{day}}</li>
+        </ul>
+    </div>
+</div>
+

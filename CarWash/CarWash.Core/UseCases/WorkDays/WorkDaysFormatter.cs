@@ -24,7 +24,7 @@ namespace CarWash.Core.UseCases.WorkDays
             return upcomingDays;
         }
 
-        public IList<string> WorkingHoursLeftToString(WorkDay day)
+        public List<string> WorkingHoursLeftToString(WorkDay day)
         {
             var hoursLeft = day.GetRemainingHours();
             var hoursLeftString = new List<string>();

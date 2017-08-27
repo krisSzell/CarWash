@@ -9,7 +9,7 @@ namespace CarWash.Core.UseCases.WorkDays
 {
     public interface IWorkDaysFormatter
     {
-        IList<string> WorkingHoursLeftToString(WorkDay day);
+        List<string> WorkingHoursLeftToString(WorkDay day);
         IList<string> WorkDaysToString(IList<WorkDay> days);
     }
 }

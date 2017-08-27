@@ -11,11 +11,13 @@ namespace CarWash.Persistence
     {
         private readonly ApplicationDbContext _context;
         public IReservationsRepository Reservations { get; set; }
+        public IServiceRepository Services { get; set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
             Reservations = new ReservationsRepository(context);
+            Services = new ServiceRepository(context);
         }
 
         public void PersistChanges()
