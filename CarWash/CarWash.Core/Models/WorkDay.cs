@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarWash.Core.Models
 {
-    public class WorkDay : IWorkDay
+    public class WorkDay
     {
         private readonly int _startHour;
         private readonly int _endHour;

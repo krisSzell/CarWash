@@ -15,7 +15,9 @@ namespace CarWash.Core.UseCases.WorkDays
 
             foreach (var day in days)
             {
-                string dayRepresentation = day.GetDay() + "." + day.GetMonth();
+                string dayNo = day.GetDay() < 10 ? $"0{day.GetDay()}" : $"{day.GetDay()}";
+                string monthNo = day.GetMonth() < 10 ? $"0{day.GetMonth()}" : $"{day.GetMonth()}";
+                string dayRepresentation = dayNo + "." + monthNo;
                 upcomingDays.Add(dayRepresentation);
             }
 

@@ -34,8 +34,8 @@ namespace CarWash.Core.UseCases.WorkDays
                 if (_workingDays.Any(wd => wd == date.GetDayOfWeek()))
                 {
                     workDays.Add(date);
+                    daysAdded++;
                 }
-                daysAdded++;
             }
 
             return workDays;

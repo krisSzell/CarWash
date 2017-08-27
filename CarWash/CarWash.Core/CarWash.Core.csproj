@@ -73,7 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\IWorkDay.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Service.cs" />
