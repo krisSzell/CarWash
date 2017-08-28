@@ -3,4 +3,5 @@ export class Service {
     name: string;
     price: number;
     durationInMinutes: number;
+    isSelected: boolean;
 }

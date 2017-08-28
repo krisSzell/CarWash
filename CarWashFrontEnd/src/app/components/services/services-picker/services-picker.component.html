@@ -1,8 +1,10 @@
-<div class="card" *ngFor="let service of services">
+<h3 class="text-primary">Wybierz program:</h3>
+<div [ngClass]="{'card':true, 'active':service.isSelected}" *ngFor="let service of services" (click)="onClick(service)">
   <div class="card-body">
     <h4 class="card-title text-primary">{{service.name}}</h4>
     <h6 class="card-subtitle mb-2 text-muted">Cena: {{service.price}} zł</h6>
     <h6 class="card-subtitle mb-2 text-muted">Czas trwania: {{service.durationInMinutes}} min</h6>
     <p class="card-text">Description of given service should be put here to enrich the contents of our fabulous application.</p>
+    <button class="btn btn-success btn-select" *ngIf="service.isSelected" (click)="onSelect(service)">Wybierz datę</button>
   </div>
 </div>

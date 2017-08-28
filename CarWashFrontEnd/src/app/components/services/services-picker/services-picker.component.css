@@ -8,3 +8,12 @@
     background-color: #e9ecef;
     border-color: #ddd;
 }
+
+.card.active {
+    background-color: #E9ECEF;
+    border-color: #28A745;
+}
+
+.btn.btn-select {
+    width: 20%;
+}
