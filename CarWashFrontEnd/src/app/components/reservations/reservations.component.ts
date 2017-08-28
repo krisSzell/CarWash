@@ -13,6 +13,7 @@ export class ReservationsComponent implements OnInit {
   }
 
   nextStep($event) {
+    console.log(new Date().getMonth());
     console.log($event);
   }
 

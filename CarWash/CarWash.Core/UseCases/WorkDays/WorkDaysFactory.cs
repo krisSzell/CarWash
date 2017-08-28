@@ -38,7 +38,7 @@ namespace CarWash.Core.UseCases.WorkDays
                     date = date.AddDays(count);
                     dayToAdd = new WorkDay(date);
                 }
-                if (_workingDays.Any(wd => wd == dayToAdd.GetDayOfWeek()))
+                if (dayHasWorkingHours(dayToAdd) && _workingDays.Any(wd => wd == dayToAdd.GetDayOfWeek()))
                 {
                     workDays.Add(dayToAdd);
                     daysAdded++;
@@ -47,6 +47,11 @@ namespace CarWash.Core.UseCases.WorkDays
             }
 
             return workDays;
+        }
+
+        private bool dayHasWorkingHours(WorkDay day)
+        {
+            return day.GetRemainingHours().Count > 0 ? true : false;
         }
     }
 }
