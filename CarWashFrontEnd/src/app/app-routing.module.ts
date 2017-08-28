@@ -1,4 +1,5 @@
-import { WorkDaysPickerComponent } from './components/work-days/work-days-picker/work-days-picker.component';
+import { SelectDateComponent } from './components/select-date/select-date.component';
+import { AppComponent } from './components/root/app.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { ServicesPickerComponent } from './components/services/services-picker/services-picker.component';
 import { NgModule } from '@angular/core';
@@ -6,8 +7,9 @@ import { Router, Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
 
-    { path: 'pick-date', component: WorkDaysPickerComponent },
-    { path: '', component: ReservationsComponent }
+    { path: 'select-date', component: SelectDateComponent },
+    { path: 'confirmation', component: ReservationsComponent },
+    { path: '', component: ServicesPickerComponent }
 
 ];
 

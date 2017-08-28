@@ -1,3 +1,5 @@
+import { Reservation } from './../../reservation';
+import { ReservationService } from './../../services/reservation.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,14 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationsComponent implements OnInit {
 
-  constructor() { }
+  reservation: Reservation;
+  selectedService = {};
+  selectedDate = {};
+  currentStep = "service";
+
+  constructor(private _reservationService: ReservationService) { }
 
   ngOnInit() {
+    this._reservationService.currentReservationState
+      .subscribe(reservation => this.reservation = reservation);
   }
 
-  nextStep($event) {
-    console.log(new Date().getMonth());
-    console.log($event);
+  selectDate($event) {
+    this.selectedService = $event;
+    console.log(this.selectedService);
+    this.currentStep = "date";
   }
 
+  confirm($event) {
+    this.selectedDate = $event;
+    console.log(this.selectedDate);
+  }
 }

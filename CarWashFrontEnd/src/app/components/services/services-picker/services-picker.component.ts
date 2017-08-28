@@ -1,3 +1,5 @@
+import { Reservation } from './../../../reservation';
+import { ReservationService } from './../../../services/reservation.service';
 import { ServicesService } from './../../../services/services.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Service } from "app/components/services/service";
@@ -9,29 +11,22 @@ import { Service } from "app/components/services/service";
 })
 export class ServicesPickerComponent implements OnInit {
 
+  reservation: Reservation;
   services = [];
-  selectedService: Service;
-  @Output() onSelected: EventEmitter<Service> = new EventEmitter();
 
-  constructor(private _servicesService: ServicesService) { }
+  constructor(private _servicesService: ServicesService,
+    private _reservationService: ReservationService) { }
 
   ngOnInit() {
     this._servicesService.getServices()
-      .subscribe(services => this.services = services,
-      null,
-      () => {
-        this.services.forEach(s => s.isSelected = false);
-      });
+      .subscribe(services => this.services = services);
+
+    this._reservationService.currentReservationState
+      .subscribe(reservation => this.reservation = reservation);
   }
 
   onClick(service: Service) {
-    this.selectedService = service;
-    this.services.forEach(s => s.isSelected = false);
-    this.services.find(s => s == service).isSelected = true;
+    this._reservationService.updateService(service.serviceId);
+    console.log(service);
   }
-
-  onSelect(service: Service) {
-    this.onSelected.emit(service);
-  }
-
 }
