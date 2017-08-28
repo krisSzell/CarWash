@@ -37,6 +37,7 @@ namespace CarWash.Controllers.api
                 workingHours.AddRange(_workDaysFormatter.WorkingHoursLeftToString(workDay));
                 var workDayDto = new WorkDayDto()
                 {
+                    Year = workDay.GetYear(),
                     Day = workDay.GetDay(),
                     Month = workDay.GetMonth(),
                     WorkHours = workingHours,

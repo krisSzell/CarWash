@@ -19,6 +19,10 @@ namespace CarWash.Core.Models
             _endHour = 16;
         }
 
+        public int GetYear()
+        {
+            return _day.Year;
+        }
         public int GetMonth()
         {
             return _day.Month;
@@ -38,7 +42,7 @@ namespace CarWash.Core.Models
         public List<WorkHour> GetRemainingHours()
         {
             int hour = setStartingHour();
-            if (hour == -1) return null;
+            if (hour == -1) return new List<WorkHour>();
             int minute = setStartingMinute();
 
             List<WorkHour> result = new List<WorkHour>();

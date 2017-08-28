@@ -1,6 +1,7 @@
+import { Reservation } from './../../../reservation';
 import { WorkDay } from './../work-day';
 import { WorkDaysService } from './../../../services/work-days.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-work-days-picker',
@@ -12,6 +13,7 @@ export class WorkDaysPickerComponent implements OnInit {
   workDays = [];
   selectedDay;
   daysLoaded = false;
+  @Output() onDateSelected: EventEmitter<any> = new EventEmitter();
 
   constructor(private _service: WorkDaysService) { }
 
@@ -29,7 +31,7 @@ export class WorkDaysPickerComponent implements OnInit {
       });
   }
 
-  select(day: WorkDay) {
+  selectDay(day: WorkDay) {
     this.workDays.forEach(d => {
       d.isSelected = false;
       if (d == day) {
@@ -37,5 +39,28 @@ export class WorkDaysPickerComponent implements OnInit {
       }
     });
     this.selectedDay = day;
+  }
+
+  selectHour($event) {
+    let reservation = this.setReservationDate(
+      this.selectedDay.year, this.selectedDay.month,
+      this.selectedDay.day, $event.toElement.innerText);
+
+    this.onDateSelected.emit(reservation);
+    console.log(reservation);
+  }
+
+  setReservationDate(year: string, month: string, day: string, hour: string) {
+    let reservation = {
+      serviceId: null,
+      date: {
+        year: year,
+        month: month,
+        day: day,
+        hour: hour
+      },
+      userId: ""
+    };
+    return reservation;
   }
 }
