@@ -1,2 +1,10 @@
-reservations works!
-{{reservation | json}}
+<div class="card">
+    <h5 class="card-header">Szczegóły rezerwacji</h5>
+    <div class="card-body">
+      <h4 class="card-title text-primary">Program {{reservation.service.name}}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Cena: {{reservation.service.price}} zł</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Czas trwania: {{reservation.service.durationInMinutes}} min</h6>
+      <h6>{{ reservation.date | resDate:'.'}}</h6>
+      <button class="btn btn-success" routerLink='/' (click)="confirm()">Potwierdź</button>
+    </div>
+</div>

@@ -26,7 +26,7 @@ export class ServicesPickerComponent implements OnInit {
   }
 
   onClick(service: Service) {
-    this._reservationService.updateService(service.serviceId);
+    this._reservationService.updateService(service);
     console.log(service);
   }
 }

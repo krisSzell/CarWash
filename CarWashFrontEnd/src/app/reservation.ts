@@ -1,7 +1,8 @@
+import { Service } from 'app/components/services/service';
 import { ReservationDate } from './date';
 
 export class Reservation {
-    serviceId: number;
+    service: Service;
     date: ReservationDate;
     userId: string;
 }

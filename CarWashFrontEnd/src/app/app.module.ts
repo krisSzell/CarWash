@@ -1,3 +1,4 @@
+import { ReservationDatePipe } from './reservation-date.pipe';
 import { ReservationService } from './services/reservation.service';
 import { AppRoutingModule } from './app-routing.module';
 import { ServicesService } from './services/services.service';
@@ -17,6 +18,7 @@ import { ReservationsComponent } from './components/reservations/reservations.co
     AppComponent,
     SelectDateComponent,
     WorkDayPipe,
+    ReservationDatePipe,
     ServicesPickerComponent,
     ReservationsComponent
   ],

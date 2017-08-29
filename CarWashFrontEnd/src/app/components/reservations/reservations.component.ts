@@ -10,8 +10,6 @@ import { Component, OnInit } from '@angular/core';
 export class ReservationsComponent implements OnInit {
 
   reservation: Reservation;
-  selectedService = {};
-  selectedDate = {};
   currentStep = "service";
 
   constructor(private _reservationService: ReservationService) { }
@@ -21,14 +19,7 @@ export class ReservationsComponent implements OnInit {
       .subscribe(reservation => this.reservation = reservation);
   }
 
-  selectDate($event) {
-    this.selectedService = $event;
-    console.log(this.selectedService);
-    this.currentStep = "date";
-  }
+  confirm() {
 
-  confirm($event) {
-    this.selectedDate = $event;
-    console.log(this.selectedDate);
   }
 }

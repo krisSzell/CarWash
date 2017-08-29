@@ -1,3 +1,4 @@
+import { Service } from 'app/components/services/service';
 import { ReservationDate } from './../date';
 import { Reservation } from './../reservation';
 import { Injectable } from '@angular/core';
@@ -11,9 +12,9 @@ export class ReservationService {
 
   constructor() { }
 
-  updateService(serviceId: number) {
+  updateService(service: Service) {
     let updated = this.reservationSource.value;
-    updated.serviceId = serviceId;
+    updated.service = service;
     this.reservationSource.next(updated);
   }
 
