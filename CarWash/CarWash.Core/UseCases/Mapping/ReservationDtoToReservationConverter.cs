@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarWash.Core.UseCases.Mapping
 {
-    class ReservationDtoToReservationConverter : ITypeConverter<ReservationDto, Reservation>
+    public class ReservationDtoToReservationConverter : ITypeConverter<ReservationDto, Reservation>
     {
         public Reservation Convert(ReservationDto source, 
             Reservation destination, 
@@ -19,6 +19,7 @@ namespace CarWash.Core.UseCases.Mapping
             reservation.Schedule = createSchedule(source);
             reservation.Service = source.Service;
             reservation.Status = new Status() { IsAccepted = false, IsArchived = false };
+            reservation.UserId = source.UserId;
 
             return reservation;
         }

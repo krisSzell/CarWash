@@ -16,5 +16,6 @@ namespace CarWash.Core.Models
         public Service Service { get; set; }
         public Status Status { get; set; }
         public Schedule Schedule { get; set; }
+        public string UserId { get; set; }
     }
 }
