@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CarWash.Core.Models;
+using CarWash.Persistence.Models;
 using System.Collections.Generic;
 
 namespace CarWash.Tests.Core

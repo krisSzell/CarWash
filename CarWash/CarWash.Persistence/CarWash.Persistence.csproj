@@ -73,6 +73,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Dtos\ReservationDto.cs" />
+    <Compile Include="Dtos\WorkDayDto.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Migrations\201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.cs" />
     <Compile Include="Migrations\201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.Designer.cs">
@@ -103,6 +105,13 @@
       <DependentUpon>201708301810167_AddedUserIdFieldToReservationModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\WorkDay.cs" />
+    <Compile Include="Models\WorkHour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IReservationsRepository.cs" />
     <Compile Include="Repositories\IServiceRepository.cs" />
@@ -113,12 +122,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CarWash.Core\CarWash.Core.csproj">
-      <Project>{775B9E12-CBC2-4FBD-A5AC-1D305DFB9F31}</Project>
-      <Name>CarWash.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.resx">

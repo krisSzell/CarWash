@@ -3,8 +3,8 @@ using System.Text;
 using System.Collections.Generic;
 using CarWash.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CarWash.Core.UseCases.WorkDays;
-using CarWash.Core.Models;
+using CarWash.Persistence.UseCases.WorkDays;
+using CarWash.Persistence.Models;
 
 namespace CarWash.Tests.Core
 {

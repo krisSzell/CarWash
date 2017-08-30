@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CarWash.Core.Models
+namespace CarWash.Persistence.Models
 {
     public class Reservation
     {

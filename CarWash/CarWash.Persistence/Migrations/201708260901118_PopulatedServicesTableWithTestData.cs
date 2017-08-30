@@ -15,7 +15,10 @@ namespace CarWash.Persistence.Migrations
         
         public override void Down()
         {
-            Sql("DELETE * FROM Services");
+            Sql("DELETE FROM Services WHERE Name = 'Br¹zowy'");
+            Sql("DELETE FROM Services WHERE Name = 'Srebrny'");
+            Sql("DELETE FROM Services WHERE Name = 'Z³oty'");
+            Sql("DELETE FROM Services WHERE Name = 'Platynowy'");
         }
     }
 }

@@ -7,7 +7,7 @@ using CarWash;
 using CarWash.Controllers;
 using CarWash.Persistence;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CarWash.Core.UseCases.WorkDays;
+using CarWash.Persistence.UseCases.WorkDays;
 
 namespace CarWash.Tests.Controllers
 {

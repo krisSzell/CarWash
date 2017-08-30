@@ -1,4 +1,4 @@
-﻿using CarWash.Core.Models;
+﻿using CarWash.Persistence.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;

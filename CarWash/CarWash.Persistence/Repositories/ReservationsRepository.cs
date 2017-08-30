@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CarWash.Core.Models;
+using CarWash.Persistence.Models;
 using System.Data.Entity;
 
 namespace CarWash.Persistence.Repositories
@@ -19,7 +19,6 @@ namespace CarWash.Persistence.Repositories
 
         public void Add(Reservation reservation)
         {
-
             _context.Reservations.Add(reservation);
         }
 

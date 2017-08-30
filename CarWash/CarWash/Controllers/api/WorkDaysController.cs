@@ -1,5 +1,5 @@
-﻿using CarWash.Core.Dtos;
-using CarWash.Core.UseCases.WorkDays;
+﻿using CarWash.Persistence.Dtos;
+using CarWash.Persistence.UseCases.WorkDays;
 using System.Collections.Generic;
 using System.Web.Http;
 

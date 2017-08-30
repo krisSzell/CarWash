@@ -1,10 +1,10 @@
-﻿using CarWash.Core.Dtos;
-using CarWash.Core.Models;
+﻿using CarWash.Persistence.Dtos;
+using CarWash.Persistence.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CarWash.Core.UseCases.Reservations
+namespace CarWash.Persistence.UseCases.Reservations
 {
     public interface IReservationsService
     {

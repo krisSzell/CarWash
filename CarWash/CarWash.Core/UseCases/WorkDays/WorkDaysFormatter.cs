@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CarWash.Core.Models;
+using CarWash.Persistence.Models;
 
-namespace CarWash.Core.UseCases.WorkDays
+namespace CarWash.Persistence.UseCases.WorkDays
 {
     public class WorkDaysFormatter : IWorkDaysFormatter
     {

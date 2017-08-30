@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace CarWash.Core.Dtos
+namespace CarWash.Persistence.Dtos
 {
     public class WorkDayDto
     {

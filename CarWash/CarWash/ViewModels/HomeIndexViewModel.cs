@@ -1,5 +1,5 @@
-﻿using CarWash.Core.Models;
-using CarWash.Core.UseCases.WorkDays;
+﻿using CarWash.Persistence.Models;
+using CarWash.Persistence.UseCases.WorkDays;
 using System;
 using System.Collections.Generic;
 using System.Linq;

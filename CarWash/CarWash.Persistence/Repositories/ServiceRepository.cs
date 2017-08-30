@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CarWash.Core.Models;
+using CarWash.Persistence.Models;
 
 namespace CarWash.Persistence.Repositories
 {

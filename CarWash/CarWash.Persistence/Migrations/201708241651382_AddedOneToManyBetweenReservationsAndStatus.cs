@@ -8,7 +8,7 @@ namespace CarWash.Persistence.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Status",
+                "dbo.Statuses",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -19,15 +19,15 @@ namespace CarWash.Persistence.Migrations
             
             AddColumn("dbo.Reservations", "Status_Id", c => c.Int());
             CreateIndex("dbo.Reservations", "Status_Id");
-            AddForeignKey("dbo.Reservations", "Status_Id", "dbo.Status", "Id");
+            AddForeignKey("dbo.Reservations", "Status_Id", "dbo.Statuses", "Id");
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Reservations", "Status_Id", "dbo.Status");
+            DropForeignKey("dbo.Reservations", "Status_Id", "dbo.Statuses");
             DropIndex("dbo.Reservations", new[] { "Status_Id" });
             DropColumn("dbo.Reservations", "Status_Id");
-            DropTable("dbo.Status");
+            DropTable("dbo.Statuses");
         }
     }
 }

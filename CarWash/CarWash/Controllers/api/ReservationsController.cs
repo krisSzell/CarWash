@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using CarWash.Core.Dtos;
-using CarWash.Core.Models;
+using CarWash.Persistence.Dtos;
+using CarWash.Persistence.Models;
+using CarWash.Persistence.UseCases.Reservations;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -8,6 +9,13 @@ namespace CarWash.Controllers.api
 {
     public class ReservationsController : ApiController
     {
+        private IReservationsService _reservationsService;
+
+        public ReservationsController(IReservationsService service)
+        {
+            _reservationsService = service;
+        }
+
         // GET: api/Reservations
         public IEnumerable<string> Get()
         {
@@ -22,9 +30,12 @@ namespace CarWash.Controllers.api
 
         // POST: api/Reservations
 
-        public void Post([FromBody]ReservationDto value)
+        public IHttpActionResult Post([FromBody]ReservationDto value)
         {
             var reservation = Mapper.Map<ReservationDto,Reservation>(value);
+            _reservationsService.BookReservation(reservation);
+
+            return Created(Request.RequestUri.ToString(), reservation);
         }
 
         // PUT: api/Reservations/5

@@ -1,11 +1,11 @@
-﻿using System;
+﻿using CarWash.Persistence.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CarWash.Core.Models;
 
-namespace CarWash.Core.UseCases.WorkDays
+namespace CarWash.Persistence.UseCases.WorkDays
 {
     public class WorkDaysFactory : IWorkDaysFactory
     {

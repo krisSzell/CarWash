@@ -75,15 +75,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dtos\ReservationDto.cs" />
-    <Compile Include="Dtos\WorkDayDto.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\Reservation.cs" />
-    <Compile Include="Models\Schedule.cs" />
-    <Compile Include="Models\Service.cs" />
-    <Compile Include="Models\Status.cs" />
-    <Compile Include="Models\WorkDay.cs" />
-    <Compile Include="Models\WorkHour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UseCases\Mapping\ReservationDtoToReservationConverter.cs" />
     <Compile Include="UseCases\Reservations\ReservationsService.cs" />
@@ -96,6 +87,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarWash.Persistence\CarWash.Persistence.csproj">
+      <Project>{2fef04aa-f6ad-4b22-a818-c3327fa3e08c}</Project>
+      <Name>CarWash.Persistence</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarWash.Core.Models
+namespace CarWash.Persistence.Models
 {
     public class WorkHour
     {

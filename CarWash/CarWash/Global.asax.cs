@@ -2,7 +2,7 @@
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using CarWash.App_Start;
-using CarWash.Core.UseCases.WorkDays;
+using CarWash.Persistence.UseCases.WorkDays;
 using CarWash.Persistence;
 using CarWash.Persistence.Repositories;
 using System.Reflection;

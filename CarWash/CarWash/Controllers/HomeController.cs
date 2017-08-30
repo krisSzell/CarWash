@@ -1,4 +1,4 @@
-﻿using CarWash.Core.UseCases.WorkDays;
+﻿using CarWash.Persistence.UseCases.WorkDays;
 using CarWash.Persistence;
 using CarWash.ViewModels;
 using System;
