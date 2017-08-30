@@ -1,5 +1,9 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
+using AutoMapper;
+using CarWash.Core.Dtos;
+using CarWash.Core.Models;
+using CarWash.Core.UseCases.Mapping;
 using CarWash.Core.UseCases.WorkDays;
 using CarWash.Persistence;
 using CarWash.Persistence.Repositories;
@@ -33,6 +37,7 @@ namespace CarWash.App_Start
             builder.RegisterInstance<IWorkDaysFactory>(new WorkDaysFactory());
             builder.RegisterInstance<IServiceRepository>(new ServiceRepository(appDbContext));
             builder.RegisterInstance<IReservationsRepository>(new ReservationsRepository(appDbContext));
+            builder.RegisterInstance<ITypeConverter<ReservationDto, Reservation>>(new ReservationDtoToReservationConverter());
         }
     }
 }
