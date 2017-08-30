@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CarWash.Core.Dtos;
 using CarWash.Core.Models;
+using CarWash.Core.UseCases.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace CarWash.App_Start
         {
             Mapper.Initialize((config) =>
             {
-                config.CreateMap<ReservationDto, Reservation>().ConvertUsing<ITypeConverter<ReservationDto, Reservation>>();
+                config.CreateMap<ReservationDto, Reservation>().ConvertUsing<ReservationDtoToReservationConverter>();
             });
         }
     }

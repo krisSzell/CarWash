@@ -1,4 +1,6 @@
-﻿using CarWash.Core.Dtos;
+﻿using AutoMapper;
+using CarWash.Core.Dtos;
+using CarWash.Core.Models;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -22,7 +24,7 @@ namespace CarWash.Controllers.api
 
         public void Post([FromBody]ReservationDto value)
         {
-            var reservationJson = value;
+            var reservation = Mapper.Map<ReservationDto,Reservation>(value);
         }
 
         // PUT: api/Reservations/5
