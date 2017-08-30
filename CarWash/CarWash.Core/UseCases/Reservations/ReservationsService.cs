@@ -18,10 +18,12 @@ namespace CarWash.Persistence.UseCases.Reservations
             _unitOfWork = unitOfWork;
         }
 
-        public void BookReservation(Reservation reservation)
+        public bool BookReservation(Reservation reservation)
         {
-            var reservations = _unitOfWork.Reservations.GetAll();
-            reservations.SingleOrDefault(r => r.ReservationId == reservation.ReservationId);
+            var hasBeenAdded = _unitOfWork.Reservations.Add(reservation);
+            _unitOfWork.PersistChanges();
+
+            return hasBeenAdded;
         }
     }
 }

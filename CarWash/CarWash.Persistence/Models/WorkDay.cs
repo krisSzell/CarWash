@@ -94,11 +94,16 @@ namespace CarWash.Persistence.Models
         {
             int min = 0;
             int currentMin = _day.Minute;
-            if (currentMin <= 15 && currentMin > 0) min = 15;
-            if (currentMin <= 30 && currentMin > 15) min = 30;
-            if (currentMin <= 45 && currentMin > 30) min = 45;
-            if (currentMin < 60 && currentMin > 45) min = 0;
-
+            if (_day.Hour < _startHour)
+            {
+                min = 0;
+            } else
+            {
+                if (currentMin <= 15 && currentMin > 0) min = 15;
+                if (currentMin <= 30 && currentMin > 15) min = 30;
+                if (currentMin <= 45 && currentMin > 30) min = 45;
+                if (currentMin < 60 && currentMin > 45) min = 0;
+            }
             return min;
         }
     }

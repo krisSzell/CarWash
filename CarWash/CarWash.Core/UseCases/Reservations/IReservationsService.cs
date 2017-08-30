@@ -8,6 +8,6 @@ namespace CarWash.Persistence.UseCases.Reservations
 {
     public interface IReservationsService
     {
-        void BookReservation(Reservation reservation);
+        bool BookReservation(Reservation reservation);
     }
 }

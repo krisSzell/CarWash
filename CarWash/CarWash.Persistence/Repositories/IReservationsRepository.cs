@@ -9,7 +9,7 @@ namespace CarWash.Persistence.Repositories
 {
     public interface IReservationsRepository
     {
-        void Add(Reservation reservation);
+        bool Add(Reservation reservation);
         IEnumerable<Reservation> GetAll();
         Reservation GetById(int id);
     }

@@ -33,7 +33,10 @@ namespace CarWash.Controllers.api
         public IHttpActionResult Post([FromBody]ReservationDto value)
         {
             var reservation = Mapper.Map<ReservationDto,Reservation>(value);
-            _reservationsService.BookReservation(reservation);
+            if (!_reservationsService.BookReservation(reservation))
+            {
+                return Conflict();
+            }
 
             return Created(Request.RequestUri.ToString(), reservation);
         }
