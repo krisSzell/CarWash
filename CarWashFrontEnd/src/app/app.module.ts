@@ -1,3 +1,4 @@
+import { ReservationsService } from './services/reservations.service';
 import { ReservationDatePipe } from './reservation-date.pipe';
 import { ReservationService } from './services/reservation.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,7 +31,8 @@ import { ReservationsComponent } from './components/reservations/reservations.co
   providers: [
     WorkDaysService,
     ServicesService,
-    ReservationService
+    ReservationService,
+    ReservationsService
   ],
   bootstrap: [AppComponent]
 })

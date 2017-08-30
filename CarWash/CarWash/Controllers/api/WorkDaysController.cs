@@ -1,12 +1,6 @@
-﻿using CarWash.Core.Models;
+﻿using CarWash.Core.Dtos;
 using CarWash.Core.UseCases.WorkDays;
-using CarWash.Models;
-using CarWash.Persistence;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace CarWash.Controllers.api

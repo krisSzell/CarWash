@@ -1,4 +1,5 @@
-﻿using CarWash.Core.Models;
+﻿using CarWash.Core.Dtos;
+using CarWash.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

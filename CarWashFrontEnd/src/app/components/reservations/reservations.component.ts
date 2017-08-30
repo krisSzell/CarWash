@@ -1,3 +1,4 @@
+import { ReservationsService } from './../../services/reservations.service';
 import { Reservation } from './../../reservation';
 import { ReservationService } from './../../services/reservation.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,9 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class ReservationsComponent implements OnInit {
 
   reservation: Reservation;
-  currentStep = "service";
 
-  constructor(private _reservationService: ReservationService) { }
+  constructor(private _reservationService: ReservationService,
+    private _reservationsService: ReservationsService) { }
 
   ngOnInit() {
     this._reservationService.currentReservationState
@@ -20,6 +21,7 @@ export class ReservationsComponent implements OnInit {
   }
 
   confirm() {
-
+    this._reservationsService.bookReservation(this.reservation)
+      .subscribe();
   }
 }

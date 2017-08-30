@@ -49,6 +49,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -72,6 +75,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\ReservationDto.cs" />
+    <Compile Include="Dtos\WorkDayDto.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Schedule.cs" />
@@ -80,6 +85,8 @@
     <Compile Include="Models\WorkDay.cs" />
     <Compile Include="Models\WorkHour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UseCases\Mapping\ReservationDtoToReservationConverter.cs" />
+    <Compile Include="UseCases\Reservations\ReservationsService.cs" />
     <Compile Include="UseCases\WorkDays\IWorkDaysFactory.cs" />
     <Compile Include="UseCases\WorkDays\IWorkDaysFormatter.cs" />
     <Compile Include="UseCases\Reservations\IReservationsService.cs" />
