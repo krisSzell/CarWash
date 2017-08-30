@@ -18,20 +18,11 @@ namespace CarWash
         protected void Application_Start()
         {
             // Automapper config init 
-            AutoMapperConfig.Initialize();        
+            AutoMapperConfig.Initialize();
 
             // Autofac configuration
-            var appDbContext = new ApplicationDbContext();
-            var builder = new ContainerBuilder();
             var config = GlobalConfiguration.Configuration;
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            builder.RegisterInstance<IUnitOfWork>(new UnitOfWork(appDbContext));
-            builder.RegisterInstance<IWorkDaysFormatter>(new WorkDaysFormatter());
-            builder.RegisterInstance<IWorkDaysFactory>(new WorkDaysFactory());
-            builder.RegisterInstance<IServiceRepository>(new ServiceRepository(appDbContext));
-            builder.RegisterInstance<IReservationsRepository>(new ReservationsRepository(appDbContext));
-            var container = builder.Build();
-            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            config.DependencyResolver = AutofacConfig.Configure();
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
