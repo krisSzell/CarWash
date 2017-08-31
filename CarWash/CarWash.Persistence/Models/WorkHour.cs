@@ -33,5 +33,15 @@ namespace CarWash.Persistence.Models
 
             return $"{hour}:{minute}";
         }
+
+        public override bool Equals(object obj)
+        {
+            var workHour = (WorkHour)obj;
+            if (Hour == workHour.Hour && Minute == workHour.Minute)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

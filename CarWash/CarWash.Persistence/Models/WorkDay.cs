@@ -11,12 +11,14 @@ namespace CarWash.Persistence.Models
         private readonly int _startHour;
         private readonly int _endHour;
         private DateTime _day;
+        private List<WorkHour> _workingHours;
 
         public WorkDay(DateTime day)
         {
             _day = day;
             _startHour = 8;
             _endHour = 16;
+            InitWorkHours();
         }
 
         public int GetYear()
@@ -31,21 +33,33 @@ namespace CarWash.Persistence.Models
         {
             return _day.Day;
         }
-        public int GetHour()
-        {
-            return _day.Hour;
-        }
         public DayOfWeek GetDayOfWeek()
         {
             return _day.DayOfWeek;
         }
         public List<WorkHour> GetRemainingHours()
         {
-            int hour = setStartingHour();
-            if (hour == -1) return new List<WorkHour>();
-            int minute = setStartingMinute();
+            return _workingHours;
+        }
+        public void ModifyRemainingHours(List<WorkHour> hours)
+        {
+            _workingHours = hours;
+        }
+        public string GetDayDotMonthDescription()
+        {
+            string dayNo = GetDay() < 10 ? $"0{GetDay()}" : $"{GetDay()}";
+            string monthNo = GetMonth() < 10 ? $"0{GetMonth()}" : $"{GetMonth()}";
+            string dayRepresentation = dayNo + "." + monthNo;
+            return dayRepresentation;
+        }
 
+        private void InitWorkHours()
+        {
             List<WorkHour> result = new List<WorkHour>();
+
+            int hour = setStartingHour();
+            if (hour == -1) _workingHours = result;
+            int minute = setStartingMinute();
 
             for (int i = hour; i < _endHour; i++)
             {
@@ -56,17 +70,8 @@ namespace CarWash.Persistence.Models
                 minute = 0;
             }
 
-            return result;
+            _workingHours = result;
         }
-        public string GetDayDotMonthDescription()
-        {
-            string dayNo = GetDay() < 10 ? $"0{GetDay()}" : $"{GetDay()}";
-            string monthNo = GetMonth() < 10 ? $"0{GetMonth()}" : $"{GetMonth()}";
-            string dayRepresentation = dayNo + "." + monthNo;
-            return dayRepresentation;
-        }
-        
-
         private int setStartingHour()
         {
             int hour;

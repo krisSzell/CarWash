@@ -83,6 +83,7 @@
     <Compile Include="UseCases\Reservations\IReservationsService.cs" />
     <Compile Include="UseCases\WorkDays\WorkDaysFactory.cs" />
     <Compile Include="UseCases\WorkDays\WorkDaysFormatter.cs" />
+    <Compile Include="UseCases\WorkDays\WorkHoursValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

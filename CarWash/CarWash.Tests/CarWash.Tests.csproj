@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\MappingsTests.cs" />
+    <Compile Include="Core\WorkHoursValidatorTests.cs" />
     <Compile Include="Core\WorkDaysFactoryTests.cs" />
     <Compile Include="Core\WorkDayTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

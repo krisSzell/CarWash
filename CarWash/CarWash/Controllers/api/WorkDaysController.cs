@@ -27,6 +27,8 @@ namespace CarWash.Controllers.api
 
             foreach (var workDay in workDays)
             {
+                var hours = workDay.GetRemainingHours();
+
                 var workingHours = new List<string>();
                 workingHours.AddRange(_workDaysFormatter.WorkingHoursLeftToString(workDay));
                 var workDayDto = new WorkDayDto()
