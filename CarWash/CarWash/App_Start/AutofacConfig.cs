@@ -13,6 +13,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using CarWash.Persistence.UseCases.Reservations;
+using CarWash.Core.UseCases.WorkDays;
 
 namespace CarWash.App_Start
 {
@@ -34,6 +35,7 @@ namespace CarWash.App_Start
             builder.RegisterInstance<IWorkDaysFormatter>(new WorkDaysFormatter());
             builder.RegisterInstance<IWorkDaysFactory>(new WorkDaysFactory());
             builder.RegisterInstance<IReservationsService>(new ReservationsService(new UnitOfWork(new ApplicationDbContext())));
+            builder.RegisterInstance<IWorkHoursValidator>(new WorkHoursValidator(new ReservationsRepository(new ApplicationDbContext())));
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
         }
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarWash.Core.UseCases.WorkDays
 {
-    public class WorkHoursValidator
+    public class WorkHoursValidator : IWorkHoursValidator
     {
         private IReservationsRepository _reservations;
 

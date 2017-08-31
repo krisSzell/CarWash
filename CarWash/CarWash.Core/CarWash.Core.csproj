@@ -81,6 +81,7 @@
     <Compile Include="UseCases\WorkDays\IWorkDaysFactory.cs" />
     <Compile Include="UseCases\WorkDays\IWorkDaysFormatter.cs" />
     <Compile Include="UseCases\Reservations\IReservationsService.cs" />
+    <Compile Include="UseCases\WorkDays\IWorkHoursValidator.cs" />
     <Compile Include="UseCases\WorkDays\WorkDaysFactory.cs" />
     <Compile Include="UseCases\WorkDays\WorkDaysFormatter.cs" />
     <Compile Include="UseCases\WorkDays\WorkHoursValidator.cs" />

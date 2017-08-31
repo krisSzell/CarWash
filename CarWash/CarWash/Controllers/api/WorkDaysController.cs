@@ -1,4 +1,6 @@
-﻿using CarWash.Persistence.Dtos;
+﻿using CarWash.Core.UseCases.WorkDays;
+using CarWash.Persistence.Dtos;
+using CarWash.Persistence.Repositories;
 using CarWash.Persistence.UseCases.WorkDays;
 using System.Collections.Generic;
 using System.Web.Http;
@@ -9,13 +11,16 @@ namespace CarWash.Controllers.api
     {
         private readonly IWorkDaysFactory _workDaysFactory;
         private readonly IWorkDaysFormatter _workDaysFormatter;
+        private readonly IWorkHoursValidator _workHoursValidator;
 
         public WorkDaysController(
             IWorkDaysFactory factory,
-            IWorkDaysFormatter formatter)
+            IWorkDaysFormatter formatter,
+            IWorkHoursValidator validator)
         {
             _workDaysFactory = factory;
             _workDaysFormatter = formatter;
+            _workHoursValidator = validator;
         }
 
         [Route("api/workdays")]
@@ -24,11 +29,10 @@ namespace CarWash.Controllers.api
         {
             var workDaysDtos = new List<WorkDayDto>();
             var workDays = _workDaysFactory.GetNext5WorkDays();
+            _workHoursValidator.CheckAndUpdate(workDays);
 
             foreach (var workDay in workDays)
             {
-                var hours = workDay.GetRemainingHours();
-
                 var workingHours = new List<string>();
                 workingHours.AddRange(_workDaysFormatter.WorkingHoursLeftToString(workDay));
                 var workDayDto = new WorkDayDto()

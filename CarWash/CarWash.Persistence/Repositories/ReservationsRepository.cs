@@ -23,7 +23,7 @@ namespace CarWash.Persistence.Repositories
             if (reservations.SingleOrDefault(r => r.ReservationId == reservation.ReservationId) == null)
             {
                 updateIdOfStatus(reservation);
-
+                updateIdOfService(reservation);
                 _context.Reservations.Add(reservation);
 
                 // change state of service and status entries to prevent EF from adding them to the table (since they exist)
@@ -58,6 +58,12 @@ namespace CarWash.Persistence.Repositories
             reservation.Status = statuses.SingleOrDefault(s =>
                 s.IsAccepted == reservation.Status.IsAccepted &&
                 s.IsArchived == reservation.Status.IsArchived);
+        }
+        private void updateIdOfService(Reservation reservation)
+        {
+            var services = _context.Services.ToList();
+            reservation.Service = services.SingleOrDefault(s =>
+                s.ServiceId == reservation.Service.ServiceId);
         }
     }
 }
