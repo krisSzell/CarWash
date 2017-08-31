@@ -20,29 +20,33 @@ namespace CarWash.Core.UseCases.WorkDays
         public void CheckAndUpdate(List<WorkDay> days)
         {
             var schedules = _reservations.GetAll().Select(r => r.Schedule).ToList();
-            var listOfHoursScheduled = getListOfScheduledHours(schedules);
 
             foreach (var day in days)
             {
+                var hoursScheduled = getListOfScheduledHours(schedules, day);
+
                 var remainingHours = day.GetRemainingHours();
-                foreach (var hour in listOfHoursScheduled)
+                foreach (var hour in hoursScheduled)
                 {
                     remainingHours.Remove(hour);
                 }
             }
         }
 
-        private List<WorkHour> getListOfScheduledHours(List<Schedule> schedules)
+        private List<WorkHour> getListOfScheduledHours(List<Schedule> schedules, WorkDay day)
         {
             var listOfHoursScheduled = new List<WorkHour>();
 
             foreach (var schedule in schedules)
             {
-                DateTime dateFlag = schedule.EndDate;
-                while (dateFlag > schedule.StartDate)
+                if (schedule.StartDate.Day == day.GetDay() && schedule.StartDate.Month == day.GetMonth())
                 {
-                    dateFlag = dateFlag.Subtract(TimeSpan.FromMinutes(15));
-                    listOfHoursScheduled.Add(new WorkHour(dateFlag.Hour, dateFlag.Minute));
+                    DateTime dateFlag = schedule.EndDate;
+                    while (dateFlag > schedule.StartDate)
+                    {
+                        dateFlag = dateFlag.Subtract(TimeSpan.FromMinutes(15));
+                        listOfHoursScheduled.Add(new WorkHour(dateFlag.Hour, dateFlag.Minute));
+                    }
                 }
             }
 
