@@ -105,7 +105,8 @@
       <DependentUpon>201708301810167_AddedUserIdFieldToReservationModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Accounts\ApplicationUser.cs" />
+    <Compile Include="Models\Accounts\RegisterModel.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Service.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Models\WorkDay.cs" />
     <Compile Include="Models\WorkHour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IAuthRepository.cs" />
     <Compile Include="Repositories\IReservationsRepository.cs" />
     <Compile Include="Repositories\IServiceRepository.cs" />
     <Compile Include="Repositories\ReservationsRepository.cs" />

@@ -9,6 +9,7 @@ using CarWash.ViewModels;
 using CarWash.Persistence.Models;
 using CarWash.Persistence;
 using System.Web.Http;
+using CarWash.Persistence.Models.Accounts;
 
 namespace CarWash
 {

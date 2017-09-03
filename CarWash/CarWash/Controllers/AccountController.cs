@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CarWash.ViewModels;
-using CarWash.Persistence.Models;
+using CarWash.Persistence.Models.Accounts;
 
 namespace CarWash.Controllers
 {
