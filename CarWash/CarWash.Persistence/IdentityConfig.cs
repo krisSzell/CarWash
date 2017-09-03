@@ -10,12 +10,11 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using CarWash.ViewModels;
 using CarWash.Persistence.Models;
 using CarWash.Persistence;
 using CarWash.Persistence.Models.Accounts;
 
-namespace CarWash
+namespace CarWash.Persistence
 {
     public class EmailService : IIdentityMessageService
     {

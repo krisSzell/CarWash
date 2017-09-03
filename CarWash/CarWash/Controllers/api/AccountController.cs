@@ -7,48 +7,69 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System.Web.Http;
 using System.Web;
+using CarWash.Persistence.Repositories;
+using CarWash.Persistence.Models.Accounts;
+using System.Threading.Tasks;
 
 namespace CarWash.Controllers.api
 {
     public class AccountController : ApiController
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        private IAuthRepository _authRepo;
 
-        public AccountController()
+        public AccountController(IAuthRepository repository)
         {
+            _authRepo = repository;
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IHttpActionResult> Register(RegisterModel registerModel)
         {
-            UserManager = userManager;
-            SignInManager = signInManager;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await _authRepo.RegisterUser(registerModel);
+            var errorResult = GetErrorResult(result);
+
+            if (errorResult != null)
+            {
+                return errorResult;
+            }
+
+            return Ok();
         }
 
-        public ApplicationSignInManager SignInManager
-        {
-            get
-            {
-                return _signInManager ?? HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>();
-            }
-            private set
-            {
-                _signInManager = value;
-            }
-        }
 
-        public ApplicationUserManager UserManager
+        private IHttpActionResult GetErrorResult(IdentityResult result)
         {
-            get
+            if (result == null)
             {
-                return _userManager ?? HttpContext.Current.GetOwinContext().Get<ApplicationUserManager>();
+                return InternalServerError();
             }
-            private set
-            {
-                _userManager = value;
-            }
-        }
 
-        //public async Task<IHttpActionResult>
+            if (!result.Succeeded)
+            {
+                if (result.Errors != null)
+                {
+                    foreach (string error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error);
+                    }
+                }
+
+                if (ModelState.IsValid)
+                {
+                    // No ModelState errors are available to send, so just return an empty BadRequest.
+                    return BadRequest();
+                }
+
+                return BadRequest(ModelState);
+            }
+
+            return null;
+        }
     }
 }
