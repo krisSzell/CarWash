@@ -114,6 +114,7 @@
     <Compile Include="Models\WorkDay.cs" />
     <Compile Include="Models\WorkHour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AuthRepository.cs" />
     <Compile Include="Repositories\IAuthRepository.cs" />
     <Compile Include="Repositories\IReservationsRepository.cs" />
     <Compile Include="Repositories\IServiceRepository.cs" />
