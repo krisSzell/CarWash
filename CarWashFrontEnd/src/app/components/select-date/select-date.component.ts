@@ -1,7 +1,7 @@
-import { ReservationDate } from './../../date';
+import { ReservationDate } from '../../models/date';
 import { ReservationService } from './../../services/reservation.service';
-import { Reservation } from './../../reservation';
-import { WorkDay } from './work-day';
+import { Reservation } from '../../models/reservation';
+import { WorkDay } from '../../models/work-day';
 import { WorkDaysService } from './../../services/work-days.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 

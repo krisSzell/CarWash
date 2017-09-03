@@ -1,6 +1,6 @@
 import { Service } from 'app/components/services/service';
-import { ReservationDate } from './../date';
-import { Reservation } from './../reservation';
+import { ReservationDate } from '../models/date';
+import { Reservation } from '../models/reservation';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 

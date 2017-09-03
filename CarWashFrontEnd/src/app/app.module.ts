@@ -1,3 +1,5 @@
+import { UserService } from './services/user.service';
+import { AuthenticationService } from './services/authentication.service';
 import { ReservationsService } from './services/reservations.service';
 import { ReservationDatePipe } from './reservation-date.pipe';
 import { ReservationService } from './services/reservation.service';
@@ -32,7 +34,9 @@ import { ReservationsComponent } from './components/reservations/reservations.co
     WorkDaysService,
     ServicesService,
     ReservationService,
-    ReservationsService
+    ReservationsService,
+    AuthenticationService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
