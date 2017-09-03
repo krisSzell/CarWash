@@ -15,6 +15,9 @@ import { SelectDateComponent } from './components/select-date/select-date.compon
 import { HttpModule } from "@angular/http";
 import { ServicesPickerComponent } from './components/services/services-picker/services-picker.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,12 +26,16 @@ import { ReservationsComponent } from './components/reservations/reservations.co
     WorkDayPipe,
     ReservationDatePipe,
     ServicesPickerComponent,
-    ReservationsComponent
+    ReservationsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     WorkDaysService,

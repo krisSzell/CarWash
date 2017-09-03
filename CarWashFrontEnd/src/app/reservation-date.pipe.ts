@@ -1,4 +1,4 @@
-import { ReservationDate } from './date';
+import { ReservationDate } from './models/date';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'resDate' })

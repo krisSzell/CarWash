@@ -1,4 +1,4 @@
-import { Reservation } from './../reservation';
+import { Reservation } from '../models/reservation';
 import { Http, Headers, RequestOptions, RequestMethod } from '@angular/http';
 import { Injectable } from '@angular/core';
 

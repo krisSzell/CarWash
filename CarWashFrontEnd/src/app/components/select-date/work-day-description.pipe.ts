@@ -1,4 +1,4 @@
-import { WorkDay } from './work-day';
+import { WorkDay } from '../../models/work-day';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'describe' })

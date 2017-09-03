@@ -1,0 +1,65 @@
+<form [formGroup]="form" (ngSubmit)="signup()">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" 
+               type="email" 
+               value="" 
+               class="form-control"
+               formControlName="email"/>
+        <div *ngIf="form.controls.email.touched && form.controls.email.errors">
+          <div class="alert alert-danger"
+               *ngIf="form.controls.email.errors.required">Email jest wymagany.</div>
+          <div class="alert alert-danger"
+               *ngIf="form.controls.email.errors.cannotContainSpace">Pole nie moze zawierać spacji.</div>
+        </div>
+      </div>
+  <div class="form-group">
+    <label for="name">Imie</label>
+    <input id="name" 
+           type="text" 
+           value="" 
+           class="form-control"
+           formControlName="name"/>
+    <div *ngIf="form.controls.name.touched && form.controls.name.errors">
+      <div class="alert alert-danger"
+           *ngIf="form.controls.name.errors.required">Imie jest wymagane.</div>
+      <div class="alert alert-danger"
+           *ngIf="form.controls.name.errors.cannotContainSpace">Pole nie moze zawierać spacji.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="surename">Nazwisko</label>
+    <input id="surename" 
+           type="text" 
+           value="" 
+           class="form-control"
+           formControlName="surename"/>
+    <div *ngIf="form.controls.surename.touched && form.controls.surename.errors">
+      <div class="alert alert-danger"
+           *ngIf="form.controls.surename.errors.required">Nazwisko jest wymagane.</div>
+      <div class="alert alert-danger"
+           *ngIf="form.controls.surename.errors.cannotContainSpace">Pole nie moze zawierać spacji.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Hasło</label>
+    <input id="password" 
+           type="password" 
+           value="" 
+           class="form-control"
+           formControlName="password"/>
+    <div class="alert alert-danger"
+         *ngIf="form.controls.password.touched && !form.controls.password.valid">Hasło jest wymagane.</div>
+  </div>
+  <div class="form-group">
+      <label for="password-confirmation">Potwierdź hasło</label>
+      <input id="password-confirmation" 
+             type="password" 
+             value="" 
+             class="form-control"
+             formControlName="confirmPassword"/>
+      <div class="alert alert-danger"
+           *ngIf="form.controls.confirmPassword.touched && !form.controls.confirmPassword.valid">Hasło jest wymagane.</div>
+    </div>
+  <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Zarejestruj</button>
+</form>
