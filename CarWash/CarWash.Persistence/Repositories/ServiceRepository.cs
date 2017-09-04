@@ -16,7 +16,7 @@ namespace CarWash.Persistence.Repositories
             _context = context;
         }
 
-        public List<Service> GetAll()
+        public async Task<List<Service>> GetAll()
         {
             return _context.Services.ToList();
         }

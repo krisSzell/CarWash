@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthenticationService } from './../../services/authentication.service';
 import { UsernameValidators } from './../../validators/user-name.validators';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
@@ -10,24 +12,21 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
 export class LoginComponent {
   form: FormGroup;
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder, private _authService: AuthenticationService, private _router: Router) {
     this.form = formBuilder.group({
-      username: ['', Validators.compose([
+      email: ['', Validators.compose([
         Validators.required,
         UsernameValidators.cannotContainSpace
       ])],
       password: ['', Validators.required]
     });
   }
-  //form = new FormGroup({
-  //    username: new FormControl('', Validators.required),
-  //    password: new FormControl('', Validators.required)
-  //});
 
-  signup() {
-    this.form.controls['username'].setErrors({
-      invalidLogin: true
-    });
+  login() {
+    this._authService.login(this.form.value.email, this.form.value.password)
+      .subscribe();
     console.log(this.form.value);
+
+    this._router.navigate(['']);
   }
 }

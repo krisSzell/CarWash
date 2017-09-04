@@ -33,6 +33,13 @@ namespace CarWash.Persistence.Repositories
             return result;
         }
 
+        public async Task<ApplicationUser> FindUser(string email, string password)
+        {
+            ApplicationUser user = await _userManager.FindAsync(email, password);
+
+            return user;
+        }
+
         public void Dispose()
         {
             _context.Dispose();

@@ -9,6 +9,6 @@ namespace CarWash.Persistence.Repositories
 {
     public interface IServiceRepository
     {
-        List<Service> GetAll();
+        Task<List<Service>> GetAll();
     }
 }

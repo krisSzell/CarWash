@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace CarWash.Controllers.api
@@ -19,9 +20,9 @@ namespace CarWash.Controllers.api
 
         [Route("api/services")]
         [HttpGet]
-        public IHttpActionResult GetAll()
+        public async Task<IHttpActionResult> GetAll()
         {
-            var services = _unitOfWork.Services.GetAll();
+            var services = await _unitOfWork.Services.GetAll();
             return Ok(services);
         }
     }
