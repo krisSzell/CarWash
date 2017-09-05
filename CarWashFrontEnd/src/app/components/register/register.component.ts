@@ -12,7 +12,6 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
 export class RegisterComponent {
 
   form: FormGroup;
-  registerResponse;
 
   constructor(formBuilder: FormBuilder,
     private _authService: AuthenticationService,
@@ -31,11 +30,14 @@ export class RegisterComponent {
 
   signup() {
     this._authService.register(this.form.value)
-      .subscribe(res => this.registerResponse = res);
-
-    localStorage.setItem('currentUser', this.registerResponse);
-
-    this._router.navigate(['']);
-  }
+      .subscribe(null,
+      () => console.log("Couldnt register user"),
+      () => this._authService.login(this.form.value.email, this.form.value.password)
+        .subscribe(null, null, () => {
+          window.location.reload();
+          this._router.navigate(['']);
+        })
+      );
+  };
 
 }

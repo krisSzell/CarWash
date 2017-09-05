@@ -24,8 +24,9 @@ export class LoginComponent {
 
   login() {
     this._authService.login(this.form.value.email, this.form.value.password)
-      .subscribe();
-
-    this._router.navigate(['']);
+      .subscribe(null, null, () => {
+        window.location.reload();
+        this._router.navigate(['']);
+      });
   }
 }

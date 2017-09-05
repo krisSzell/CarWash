@@ -35,9 +35,9 @@ namespace CarWash.Controllers.api
 
         // POST: api/Reservations
         [Authorize]
-        public IHttpActionResult Post([FromBody]ReservationDto value)
+        public async Task<IHttpActionResult> Post([FromBody]ReservationDto value)
         {
-            var user = _authRepository.FindUserByUsername(value.Username);
+            var user = await _authRepository.FindUserByUsername(value.Username);
 
             var reservation = Mapper.Map<ReservationDto,Reservation>(value);
             reservation.UserId = user.Id.ToString();
