@@ -48,11 +48,13 @@ export class ReservationsService {
   }
 
   confirmReservation(reservationId: number) {
+    this.options.headers.set('username', JSON.parse(localStorage.getItem('currentUser')).username);
     return this._http.post(this.url + "/confirm", reservationId, this.options)
       .map(res => res.status);
   }
 
   rejectReservation(reservationId: number) {
+    this.options.headers.set('username', JSON.parse(localStorage.getItem('currentUser')).username);
     return this._http.post(this.url + "/reject", reservationId, this.options)
       .map(res => res.status);
   }

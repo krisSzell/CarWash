@@ -1,3 +1,4 @@
+import { LogsService } from './services/logs.service';
 import { AuthGuard } from './guards/auth.guard';
 import { UserService } from './services/user.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -22,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ScheduleConfirmationComponent } from './components/administrative/schedule-confirmation/schedule-confirmation.component';
 import { StaffDashboardComponent } from './components/administrative/staff-dashboard/staff-dashboard.component';
 import { ConfirmedReservationsComponent } from './components/administrative/confirmed-reservations/confirmed-reservations.component';
+import { LogsComponent } from './components/administrative/logs/logs.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ConfirmedReservationsComponent } from './components/administrative/conf
     RegisterComponent,
     ScheduleConfirmationComponent,
     StaffDashboardComponent,
-    ConfirmedReservationsComponent
+    ConfirmedReservationsComponent,
+    LogsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { ConfirmedReservationsComponent } from './components/administrative/conf
     ReservationsService,
     AuthenticationService,
     UserService,
+    LogsService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

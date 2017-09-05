@@ -10,5 +10,6 @@ namespace CarWash.Persistence.Repositories
     public interface ILogsRepository
     {
         void PersistLog(FullLog log);
+        IEnumerable<FullLog> GetAll();
     }
 }

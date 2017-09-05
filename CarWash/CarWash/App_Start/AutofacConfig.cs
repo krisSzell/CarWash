@@ -28,6 +28,7 @@ namespace CarWash.App_Start
             builder.RegisterInstance<IWorkDaysFormatter>(new WorkDaysFormatter());
             builder.RegisterInstance<IWorkDaysFactory>(new WorkDaysFactory());
             builder.RegisterInstance<IReservationsService>(new ReservationsService(new UnitOfWork(new ApplicationDbContext())));
+            builder.RegisterInstance<ILogsRepository>(new LogsRepository(new LoggingDbContext()));
             builder.RegisterInstance<ILoggingService>(new LoggingService(new LogsRepository(new LoggingDbContext())));
             builder.RegisterInstance<IWorkHoursValidator>(new WorkHoursValidator(new ReservationsRepository(new ApplicationDbContext())));
             builder.RegisterInstance<IAuthRepository>(new AuthRepository(new ApplicationDbContext()));

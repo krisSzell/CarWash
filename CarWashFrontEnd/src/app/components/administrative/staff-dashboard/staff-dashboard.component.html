@@ -1,9 +1,14 @@
 <div class="row">
   <div class="col-md">
-      <app-schedule-confirmation (confirmed)="updateConfirmed($event)" [reservations]="unconfirmedReservations"></app-schedule-confirmation>
+      <app-schedule-confirmation (confirmed)="updateConfirmed()" [reservations]="unconfirmedReservations"></app-schedule-confirmation>
   </div>
   <div class="col-md">
       <app-confirmed-reservations [reservations]="confirmedReservations"></app-confirmed-reservations>
   </div>
+</div>
+<div class="row">
+    <div class="col-md">
+        <app-logs [logs]="this.logs"></app-logs>
+    </div>
 </div>
   

@@ -16,6 +16,11 @@ namespace CarWash.Persistence.Repositories
             _context = context;
         }
 
+        public IEnumerable<FullLog> GetAll()
+        {
+            return _context.FullLogs.ToList();
+        }
+
         public void PersistLog(FullLog log)
         {
             _context.FullLogs.Add(log);
