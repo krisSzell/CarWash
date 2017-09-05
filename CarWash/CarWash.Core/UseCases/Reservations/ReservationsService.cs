@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CarWash.Persistence.Dtos;
 using CarWash.Persistence.Models;
+using CarWash.Core.UseCases.Logging;
 
 namespace CarWash.Persistence.UseCases.Reservations
 {

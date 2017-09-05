@@ -1,4 +1,5 @@
-﻿using CarWash.Persistence.Repositories;
+﻿using CarWash.Persistence.Models.Accounts;
+using CarWash.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,14 @@ namespace CarWash.Persistence
         private readonly ApplicationDbContext _context;
         public IReservationsRepository Reservations { get; set; }
         public IServiceRepository Services { get; set; }
+        public IEnumerable<ApplicationUser> Users { get; set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
             Reservations = new ReservationsRepository(context);
             Services = new ServiceRepository(context);
+            Users = _context.Users.ToList();
         }
 
         public void PersistChanges()

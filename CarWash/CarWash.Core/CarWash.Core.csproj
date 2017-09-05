@@ -76,6 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UseCases\Logging\ILoggingService.cs" />
+    <Compile Include="UseCases\Logging\LoggingService.cs" />
     <Compile Include="UseCases\Mapping\ReservationDtoToReservationConverter.cs" />
     <Compile Include="UseCases\Mapping\ReservationToReservationDtoConverter.cs" />
     <Compile Include="UseCases\Reservations\ReservationsService.cs" />

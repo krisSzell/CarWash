@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CarWash.Core.UseCases.Logging;
 using CarWash.Persistence.Dtos;
 using CarWash.Persistence.Models;
 using CarWash.Persistence.Repositories;
@@ -7,6 +8,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -16,11 +18,13 @@ namespace CarWash.Controllers.api
     [RoutePrefix("api/reservations")]
     public class ReservationsController : ApiController
     {
-        private IReservationsService _reservationsService;
-        private IAuthRepository _authRepository;
+        private readonly ILoggingService _logger;
+        private readonly IReservationsService _reservationsService;
+        private readonly IAuthRepository _authRepository;
 
-        public ReservationsController(IReservationsService service, IAuthRepository authRepo)
+        public ReservationsController(IReservationsService service, IAuthRepository authRepo, ILoggingService logger)
         {
+            _logger = logger;
             _reservationsService = service;
             _authRepository = authRepo;
         }
@@ -60,7 +64,10 @@ namespace CarWash.Controllers.api
         public IHttpActionResult Confirm([FromBody]int reservationId)
         {
             _reservationsService.Confirm(reservationId);
-
+            _logger.AddUser(getUsernameFromRequest());
+            _logger.AddOperationMade("confirmed reservation");
+            _logger.AddDetails("id: " + reservationId);
+            _logger.Log();
             return Ok();
         }
 
@@ -69,7 +76,10 @@ namespace CarWash.Controllers.api
         public IHttpActionResult Reject([FromBody]int reservationId)
         {
             _reservationsService.Reject(reservationId);
-
+            _logger.AddUser(getUsernameFromRequest());
+            _logger.AddOperationMade("rejected reservation");
+            _logger.AddDetails("id: " + reservationId);
+            _logger.Log();
             return Ok();
         }
 
@@ -97,6 +107,16 @@ namespace CarWash.Controllers.api
         // DELETE: api/Reservations/5
         public void Delete(int id)
         {
+        }
+
+        private string getUsernameFromRequest()
+        {
+            var headers = Request.Headers;
+            if (headers.Contains("username"))
+            {
+                return headers.GetValues("username").First();
+            }
+            return "";
         }
     }
 }

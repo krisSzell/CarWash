@@ -1,4 +1,5 @@
-﻿using CarWash.Persistence.Dtos;
+﻿using CarWash.Core.UseCases.Logging;
+using CarWash.Persistence.Dtos;
 using CarWash.Persistence.Models;
 using System;
 using System.Collections.Generic;
