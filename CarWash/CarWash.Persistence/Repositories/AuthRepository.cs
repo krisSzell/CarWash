@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace CarWash.Persistence.Repositories
 {
@@ -29,6 +30,7 @@ namespace CarWash.Persistence.Repositories
             };
 
             var result = await _userManager.CreateAsync(user, registerModel.Password);
+            _userManager.AddToRole(user.Id, "Customer");
 
             return result;
         }
@@ -36,6 +38,13 @@ namespace CarWash.Persistence.Repositories
         public async Task<ApplicationUser> FindUser(string email, string password)
         {
             ApplicationUser user = await _userManager.FindAsync(email, password);
+
+            return user;
+        }
+
+        public async Task<ApplicationUser> FindUserByUsername(string username)
+        {
+            ApplicationUser user = await _userManager.FindByEmailAsync(username);
 
             return user;
         }

@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { UserService } from './services/user.service';
 import { AuthenticationService } from './services/authentication.service';
 import { ReservationsService } from './services/reservations.service';
@@ -18,6 +19,7 @@ import { ReservationsComponent } from './components/reservations/reservations.co
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ScheduleConfirmationComponent } from './components/administrative/schedule-confirmation/schedule-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     ServicesPickerComponent,
     ReservationsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ScheduleConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     ReservationService,
     ReservationsService,
     AuthenticationService,
-    UserService
+    UserService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

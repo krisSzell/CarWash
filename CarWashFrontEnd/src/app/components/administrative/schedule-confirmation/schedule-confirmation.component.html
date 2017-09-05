@@ -1,0 +1,13 @@
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Service Name</th>
+            <th>Scheduled on</th>
+            <th>Confirm</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation in unconfirmedReservations"></tr>
+    </tbody>
+</table>

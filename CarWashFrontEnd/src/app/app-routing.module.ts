@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SelectDateComponent } from './components/select-date/select-date.component';
@@ -9,10 +10,10 @@ import { Router, Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
 
+    { path: 'confirmation', component: ReservationsComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'select-date', component: SelectDateComponent },
-    { path: 'confirmation', component: ReservationsComponent },
     { path: '', component: ServicesPickerComponent }
 
 ];

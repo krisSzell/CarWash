@@ -4,5 +4,5 @@ import { ReservationDate } from './date';
 export class Reservation {
     service: Service;
     date: ReservationDate;
-    userId: string;
+    username: string;
 }

@@ -10,7 +10,7 @@ namespace CarWash.Persistence.Dtos
     {
         public Service Service { get; set; }
         public Date Date { get; set; }
-        public string UserId { get; set; }
+        public string Username { get; set; }
     }
 
     public class Date

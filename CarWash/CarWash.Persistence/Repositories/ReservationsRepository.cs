@@ -43,6 +43,16 @@ namespace CarWash.Persistence.Repositories
                 .ToList();
         }
 
+        public IEnumerable<Reservation> GetUnconfirmed()
+        {
+            return _context.Reservations
+                .Include(r => r.Schedule)
+                .Include(r => r.Service)
+                .Include(r => r.Status)
+                .Where(r => r.Status.IsAccepted == false)
+                .ToList();
+        }
+
         public Reservation GetById(int id)
         {
             return _context.Reservations

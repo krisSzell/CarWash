@@ -41,7 +41,7 @@ namespace CarWash.Tests.Core
             {
                 Date = date,
                 Service = service,
-                UserId = userId
+                Username = userId
             };
             Reservation = new Reservation()
             {

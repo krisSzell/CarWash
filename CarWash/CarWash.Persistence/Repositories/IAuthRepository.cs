@@ -11,5 +11,6 @@ namespace CarWash.Persistence.Repositories
     public interface IAuthRepository
     {
         Task<IdentityResult> RegisterUser(RegisterModel registerModel);
+        Task<ApplicationUser> FindUserByUsername(string username);
     }
 }

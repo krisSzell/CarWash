@@ -19,7 +19,6 @@ namespace CarWash.Persistence.UseCases.Mapping
             reservation.Schedule = createSchedule(source);
             reservation.Service = source.Service;
             reservation.Status = new Status() { IsAccepted = false, IsArchived = false };
-            reservation.UserId = source.UserId;
 
             return reservation;
         }

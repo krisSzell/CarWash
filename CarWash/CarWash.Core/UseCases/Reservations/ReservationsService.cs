@@ -25,5 +25,12 @@ namespace CarWash.Persistence.UseCases.Reservations
 
             return hasBeenAdded;
         }
+
+        public async Task<IEnumerable<Reservation>> GetUnconfirmed()
+        {
+            var unconfirmedReservations = _unitOfWork.Reservations.GetUnconfirmed();
+
+            return unconfirmedReservations;
+        }
     }
 }
