@@ -22,7 +22,7 @@ export class ReservationsService {
   bookReservation(reservation: Reservation) {
     reservation.username = JSON.parse(localStorage.getItem('currentUser')).username;
     return this._http.post(this.url, JSON.stringify(reservation), this.options)
-      .map(res => res.json());
+      .map(res => res.status);
   }
 
   getUnconfirmed() {
@@ -34,6 +34,11 @@ export class ReservationsService {
         method: RequestMethod.Get
       })
       .map(res => res.json());
+  }
+
+  confirmReservation(reservationId: number) {
+    return this._http.post(this.url + "/confirm", reservationId, this.options)
+      .map(res => res.status);
   }
 
 }

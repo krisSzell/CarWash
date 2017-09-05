@@ -39,8 +39,17 @@ namespace CarWash.Controllers.api
             return Ok(resultData);
         }
 
-        // POST: api/Reservations
+        [Route("confirm")]
+        [HttpPost]
+        public IHttpActionResult Confirm([FromBody]int reservationId)
+        {
+            _reservationsService.Confirm(reservationId);
+
+            return Ok();
+        }
+
         [Authorize]
+        [HttpPost]
         public async Task<IHttpActionResult> Post([FromBody]ReservationDto value)
         {
             var user = _authRepository.FindUserByUsername(value.Username);

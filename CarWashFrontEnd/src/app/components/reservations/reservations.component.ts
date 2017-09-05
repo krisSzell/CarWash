@@ -22,6 +22,6 @@ export class ReservationsComponent implements OnInit {
 
   confirm() {
     this._reservationsService.bookReservation(this.reservation)
-      .subscribe();
+      .subscribe(res => console.log(res));
   }
 }

@@ -53,6 +53,21 @@ namespace CarWash.Persistence.Repositories
                 .ToList();
         }
 
+        public void Confirm(int reservationId)
+        {
+            var reservation = _context.Reservations.Find(reservationId);
+            var currentStatus = _context.Statuses
+                .FirstOrDefault(s => s.Id == (int)StatusType.NotAccepted);
+            var updatedStatus = _context.Statuses
+                .FirstOrDefault(s => s.Id == (int)StatusType.Accepted);
+            currentStatus.Reservations.Remove(reservation);
+            if (updatedStatus.Reservations == null)
+            {
+                updatedStatus.Reservations = new List<Reservation>();
+            }
+            updatedStatus.Reservations.Add(reservation);
+        }
+
         public Reservation GetById(int id)
         {
             return _context.Reservations

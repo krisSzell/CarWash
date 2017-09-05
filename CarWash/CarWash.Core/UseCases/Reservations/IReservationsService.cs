@@ -11,5 +11,6 @@ namespace CarWash.Persistence.UseCases.Reservations
     {
         bool BookReservation(Reservation reservation);
         IEnumerable<Reservation> GetUnconfirmed();
+        void Confirm(int reservationId);
     }
 }

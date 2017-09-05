@@ -13,5 +13,6 @@ namespace CarWash.Persistence.Repositories
         IEnumerable<Reservation> GetAll();
         IEnumerable<Reservation> GetUnconfirmed();
         Reservation GetById(int id);
+        void Confirm(int reservationId);
     }
 }

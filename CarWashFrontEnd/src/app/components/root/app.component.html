@@ -34,7 +34,7 @@
   </div>
 </nav>
 
-<div class="jumbotron">
+<div class="jumbotron" *ngIf="getCurrentRoute() !== '/staff-dashboard'">
   <div class="container">
         <h1>Car Wash</h1>
         <p class="lead">Gwatantujemy, że nie poznasz swojego samochodu przy odbiorze.</p>

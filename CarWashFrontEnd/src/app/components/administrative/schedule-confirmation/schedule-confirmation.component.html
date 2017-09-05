@@ -11,8 +11,9 @@
       <tr *ngFor="let reservation of unconfirmedReservations">
           <td>{{ reservation.username }}</td>
           <td>{{ reservation.service.name }}</td>
-          <td>{{ reservation.date.toString() }}</td>
-          <td><button class="fa fa-thumbs-up"></button></td>
+          <td>{{ reservation.date.year }}.{{ reservation.date.month }}.{{ reservation.date.day }} {{ reservation.date.hour}}</td>
+          <td><i class="fa fa-check-square-o text-success ml-4 confirm-schedule" 
+                (click)="confirmReservation(reservation.reservationId)"></i></td>
       </tr>
     </tbody>
 </table>

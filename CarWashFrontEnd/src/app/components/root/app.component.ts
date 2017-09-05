@@ -1,6 +1,6 @@
 import { AuthenticationService } from './../../services/authentication.service';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ export class AppComponent {
 
   currentUsername = "";
 
-  constructor(private _authService: AuthenticationService, private route: ActivatedRoute) {
+  constructor(private _authService: AuthenticationService, private route: ActivatedRoute, private _router: Router) {
     this.route.params.subscribe(p => {
       if (localStorage.getItem('currentUser')) {
         this.currentUsername = JSON.parse(localStorage.getItem('currentUser')).username;
@@ -29,5 +29,9 @@ export class AppComponent {
 
   logOut() {
     this._authService.logout();
+  }
+
+  getCurrentRoute() {
+    return this._router.url;
   }
 }

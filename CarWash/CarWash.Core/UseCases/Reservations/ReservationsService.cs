@@ -32,5 +32,11 @@ namespace CarWash.Persistence.UseCases.Reservations
 
             return unconfirmedReservations;
         }
+
+        public void Confirm(int reservationId)
+        {
+            _unitOfWork.Reservations.Confirm(reservationId);
+            _unitOfWork.PersistChanges();
+        }
     }
 }

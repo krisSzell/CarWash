@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './schedule-confirmation.component.html',
   styleUrls: ['./schedule-confirmation.component.css']
 })
-export class ScheduleConfirmationComponent implements OnInit {
+export class ScheduleConfirmationComponent {
 
   unconfirmedReservations;
 
@@ -15,7 +15,9 @@ export class ScheduleConfirmationComponent implements OnInit {
       .subscribe(res => this.unconfirmedReservations = res);
   }
 
-  ngOnInit() {
+  confirmReservation(reservationId: number) {
+    this._reservationsService.confirmReservation(reservationId)
+      .subscribe(res => console.log(res));
   }
 
 }

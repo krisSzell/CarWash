@@ -1,3 +1,4 @@
+import { StaffDashboardComponent } from './components/administrative/staff-dashboard/staff-dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'select-date', component: SelectDateComponent },
+    { path: 'staff-dashboard', component: StaffDashboardComponent },
     { path: '', component: ServicesPickerComponent }
 
 ];
