@@ -10,6 +10,6 @@ namespace CarWash.Persistence.UseCases.Reservations
     public interface IReservationsService
     {
         bool BookReservation(Reservation reservation);
-        Task<IEnumerable<Reservation>> GetUnconfirmed();
+        IEnumerable<Reservation> GetUnconfirmed();
     }
 }

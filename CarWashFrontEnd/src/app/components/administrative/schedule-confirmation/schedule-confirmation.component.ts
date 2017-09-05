@@ -1,3 +1,4 @@
+import { ReservationsService } from './../../../services/reservations.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleConfirmationComponent implements OnInit {
 
-  constructor() { }
+  unconfirmedReservations;
+
+  constructor(private _reservationsService: ReservationsService) {
+    this._reservationsService.getUnconfirmed()
+      .subscribe(res => this.unconfirmedReservations = res);
+  }
 
   ngOnInit() {
   }

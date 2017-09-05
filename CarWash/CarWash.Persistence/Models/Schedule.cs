@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace CarWash.Persistence.Models
         public DateTime EndDate { get; set; }
         public bool IsAvailable { get; set; }
 
+        [JsonIgnore]
         public ICollection<Reservation> Reservations { get; set; }
     }
 }

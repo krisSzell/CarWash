@@ -25,4 +25,15 @@ export class ReservationsService {
       .map(res => res.json());
   }
 
+  getUnconfirmed() {
+    return this._http.get(this.url + "/unconfirmed",
+      {
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        }),
+        method: RequestMethod.Get
+      })
+      .map(res => res.json());
+  }
+
 }

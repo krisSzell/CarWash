@@ -26,7 +26,7 @@ namespace CarWash.Persistence.UseCases.Reservations
             return hasBeenAdded;
         }
 
-        public async Task<IEnumerable<Reservation>> GetUnconfirmed()
+        public IEnumerable<Reservation> GetUnconfirmed()
         {
             var unconfirmedReservations = _unitOfWork.Reservations.GetUnconfirmed();
 

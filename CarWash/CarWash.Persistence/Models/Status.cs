@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,6 +16,7 @@ namespace CarWash.Persistence.Models
         public bool IsAccepted { get; set; }
         public bool IsArchived { get; set; }
 
+        [JsonIgnore]
         public ICollection<Reservation> Reservations { get; set; }
     }
 }

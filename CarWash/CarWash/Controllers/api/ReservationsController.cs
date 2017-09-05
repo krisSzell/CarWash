@@ -26,9 +26,9 @@ namespace CarWash.Controllers.api
         }
 
         [Route("unconfirmed")]
-        public async Task<IHttpActionResult> GetUnconfirmed()
+        public IHttpActionResult GetUnconfirmed()
         {
-            var unconfirmedReservations = await _reservationsService.GetUnconfirmed();
+            var unconfirmedReservations = _reservationsService.GetUnconfirmed();
 
             return Ok(unconfirmedReservations);
         }
@@ -40,6 +40,7 @@ namespace CarWash.Controllers.api
             var user = _authRepository.FindUserByUsername(value.Username);
 
             var reservation = Mapper.Map<ReservationDto,Reservation>(value);
+            reservation.UserId = user.Id.ToString();
             if (!_reservationsService.BookReservation(reservation))
             {
                 return Conflict();
