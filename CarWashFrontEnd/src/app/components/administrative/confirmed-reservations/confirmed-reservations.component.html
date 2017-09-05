@@ -1,0 +1,17 @@
+<h4>Potwierdzone terminy</h4>
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Service</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of confirmedReservations">
+          <td>{{ reservation.username }}</td>
+          <td>{{ reservation.service.name }}</td>
+          <td class="whitespace">{{ reservation.date.year }}.{{ reservation.date.month }}.{{ reservation.date.day }} {{ reservation.date.hour}}</td>
+      </tr>
+    </tbody>
+</table>

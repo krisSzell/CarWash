@@ -12,7 +12,9 @@ namespace CarWash.Persistence.Repositories
         bool Add(Reservation reservation);
         IEnumerable<Reservation> GetAll();
         IEnumerable<Reservation> GetUnconfirmed();
+        IEnumerable<Reservation> GetConfirmed();
         Reservation GetById(int id);
         void Confirm(int reservationId);
+        void Reject(int reservationId);
     }
 }

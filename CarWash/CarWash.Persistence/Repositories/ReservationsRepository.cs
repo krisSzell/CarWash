@@ -49,7 +49,17 @@ namespace CarWash.Persistence.Repositories
                 .Include(r => r.Schedule)
                 .Include(r => r.Service)
                 .Include(r => r.Status)
-                .Where(r => r.Status.IsAccepted == false)
+                .Where(r => r.Status.IsAccepted == false && r.Status.IsArchived == false)
+                .ToList();
+        }
+
+        public IEnumerable<Reservation> GetConfirmed()
+        {
+            return _context.Reservations
+                .Include(r => r.Schedule)
+                .Include(r => r.Service)
+                .Include(r => r.Status)
+                .Where(r => r.Status.IsAccepted == true && r.Status.IsArchived == false)
                 .ToList();
         }
 
@@ -60,6 +70,21 @@ namespace CarWash.Persistence.Repositories
                 .FirstOrDefault(s => s.Id == (int)StatusType.NotAccepted);
             var updatedStatus = _context.Statuses
                 .FirstOrDefault(s => s.Id == (int)StatusType.Accepted);
+            currentStatus.Reservations.Remove(reservation);
+            if (updatedStatus.Reservations == null)
+            {
+                updatedStatus.Reservations = new List<Reservation>();
+            }
+            updatedStatus.Reservations.Add(reservation);
+        }
+
+        public void Reject(int reservationId)
+        {
+            var reservation = _context.Reservations.Find(reservationId);
+            var currentStatus = _context.Statuses
+                .FirstOrDefault(s => s.Id == (int)StatusType.NotAccepted);
+            var updatedStatus = _context.Statuses
+                .FirstOrDefault(s => s.Id == (int)StatusType.NotAcceptedArchived);
             currentStatus.Reservations.Remove(reservation);
             if (updatedStatus.Reservations == null)
             {

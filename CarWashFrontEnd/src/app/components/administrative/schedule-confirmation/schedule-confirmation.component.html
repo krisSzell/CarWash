@@ -1,19 +1,26 @@
-<table class="table table-condensed table-hover">
+<h4>Rezerwacje oczekujące na potwierdzenie</h4>
+<table class="table table-condensed table-striped">
     <thead>
         <tr>
             <th>Customer</th>
-            <th>Service Name</th>
-            <th>Scheduled on</th>
-            <th>Confirm</th>
+            <th>Service</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
       <tr *ngFor="let reservation of unconfirmedReservations">
           <td>{{ reservation.username }}</td>
           <td>{{ reservation.service.name }}</td>
-          <td>{{ reservation.date.year }}.{{ reservation.date.month }}.{{ reservation.date.day }} {{ reservation.date.hour}}</td>
-          <td><i class="fa fa-check-square-o text-success ml-4 confirm-schedule" 
-                (click)="confirmReservation(reservation.reservationId)"></i></td>
+          <td class="whitespace">{{ reservation.date.year }}.{{ reservation.date.month }}.{{ reservation.date.day }} {{ reservation.date.hour}}</td>
+          <td><button class="btn btn-outline-success confirm-schedule" 
+                (click)="confirmReservation(reservation.reservationId)">Confirm</button>
+          </td>
+          <td>
+            <button class="btn btn-outline-danger confirm-schedule"
+                (click)="rejectReservation(reservation.reservationId)">Reject</button>
+            </td>
       </tr>
     </tbody>
 </table>

@@ -26,7 +26,9 @@ export class LoginComponent {
     this._authService.login(this.form.value.email, this.form.value.password)
       .subscribe(null, null, () => {
         window.location.reload();
-        this._router.navigate(['']);
+        this._router.navigate([this._authService.resolveRedirectBasedOnUserRole()]);
       });
   }
+
+
 }

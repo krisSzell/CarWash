@@ -26,6 +26,7 @@ namespace CarWash.Controllers.api
         }
 
         [Route("unconfirmed")]
+        [HttpGet]
         public IHttpActionResult GetUnconfirmed()
         {
             var unconfirmedReservations = _reservationsService.GetUnconfirmed().ToList();
@@ -39,11 +40,35 @@ namespace CarWash.Controllers.api
             return Ok(resultData);
         }
 
+        [Route("confirmed")]
+        [HttpGet]
+        public IHttpActionResult GetConfirmed()
+        {
+            var confirmedReservations = _reservationsService.GetConfirmed().ToList();
+            var resultData = new List<ReservationDto>();
+
+            foreach (var reservation in confirmedReservations)
+            {
+                resultData.Add(Mapper.Map<Reservation, ReservationDto>(reservation));
+            }
+
+            return Ok(resultData);
+        }
+
         [Route("confirm")]
         [HttpPost]
         public IHttpActionResult Confirm([FromBody]int reservationId)
         {
             _reservationsService.Confirm(reservationId);
+
+            return Ok();
+        }
+
+        [Route("reject")]
+        [HttpPost]
+        public IHttpActionResult Reject([FromBody]int reservationId)
+        {
+            _reservationsService.Reject(reservationId);
 
             return Ok();
         }

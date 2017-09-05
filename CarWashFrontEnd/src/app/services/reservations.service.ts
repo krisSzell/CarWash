@@ -36,9 +36,24 @@ export class ReservationsService {
       .map(res => res.json());
   }
 
+  getConfirmed() {
+    return this._http.get(this.url + "/confirmed",
+      {
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        }),
+        method: RequestMethod.Get
+      })
+      .map(res => res.json());
+  }
+
   confirmReservation(reservationId: number) {
     return this._http.post(this.url + "/confirm", reservationId, this.options)
       .map(res => res.status);
   }
 
+  rejectReservation(reservationId: number) {
+    return this._http.post(this.url + "/reject", reservationId, this.options)
+      .map(res => res.status);
+  }
 }

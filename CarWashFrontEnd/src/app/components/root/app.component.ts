@@ -34,4 +34,12 @@ export class AppComponent {
   getCurrentRoute() {
     return this._router.url;
   }
+
+  getCurrentUserRole() {
+    if (this.isLoggedIn()) {
+      return JSON.parse(localStorage.getItem('currentUser')).role;
+    } else {
+      return "notLoggedIn";
+    }
+  }
 }

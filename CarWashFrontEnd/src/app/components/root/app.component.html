@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Rezerwacje <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="">Rezerwacje <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn()">
           <a class="nav-link" routerLink="user/schedules">Moje terminy</a>
@@ -16,25 +16,25 @@
       </ul>
       <ul class="navbar-nav ml-auto pull-right" *ngIf="!isLoggedIn()">
         <li class="nav-item">
-          <a routerLink="register" class="nav-link">Register</a>
+          <a routerLink="register" class="nav-link">Zarejestruj</a>
         </li>
         <li class="nav-item">
-          <a routerLink="login" class="nav-link">Log In</a>
+          <a routerLink="login" class="nav-link">Zaloguj</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto pull-right" *ngIf="isLoggedIn()">
           <li class="nav-item">
-            <a class="nav-link">Witaj {{currentUsername}}!</a>
+            <a class="nav-link" routerLink="">Witaj {{currentUsername}}!</a>
           </li>
           <li class="nav-item">
-            <a routerLink="" class="nav-link" (click)="logOut()">Log Out</a>
+            <a routerLink="" class="nav-link" (click)="logOut()">Wyloguj</a>
           </li>
         </ul>
     </div>
   </div>
 </nav>
 
-<div class="jumbotron" *ngIf="getCurrentRoute() !== '/staff-dashboard'">
+<div class="jumbotron" *ngIf="getCurrentUserRole() !== 'StaffMember'">
   <div class="container">
         <h1>Car Wash</h1>
         <p class="lead">Gwatantujemy, że nie poznasz swojego samochodu przy odbiorze.</p>
@@ -42,10 +42,8 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row justify-content-center">
+<div class="container-fluid">
     <router-outlet></router-outlet>
-  </div>
 </div>
 
 

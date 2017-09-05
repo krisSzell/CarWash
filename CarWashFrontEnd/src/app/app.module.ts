@@ -21,6 +21,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ScheduleConfirmationComponent } from './components/administrative/schedule-confirmation/schedule-confirmation.component';
 import { StaffDashboardComponent } from './components/administrative/staff-dashboard/staff-dashboard.component';
+import { ConfirmedReservationsComponent } from './components/administrative/confirmed-reservations/confirmed-reservations.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { StaffDashboardComponent } from './components/administrative/staff-dashb
     LoginComponent,
     RegisterComponent,
     ScheduleConfirmationComponent,
-    StaffDashboardComponent
+    StaffDashboardComponent,
+    ConfirmedReservationsComponent
   ],
   imports: [
     BrowserModule,

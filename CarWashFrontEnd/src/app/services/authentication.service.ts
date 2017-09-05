@@ -47,7 +47,7 @@ export class AuthenticationService {
         if (token) {
           this.token = token;
 
-          localStorage.setItem('currentUser', JSON.stringify({ username: email, token: token }));
+          localStorage.setItem('currentUser', JSON.stringify({ username: email, token: token, role: res.json().role }));
 
           return true;
         } else {
@@ -59,5 +59,17 @@ export class AuthenticationService {
   logout(): void {
     this.token = null;
     localStorage.removeItem('currentUser');
+  }
+
+  resolveRedirectBasedOnUserRole() {
+    let role = JSON.parse(localStorage.getItem('currentUser')).role;
+    switch (role) {
+      case 'Customer':
+        return '';
+      case 'StaffMember':
+        return '/staff-dashboard';
+      default:
+        return '';
+    }
   }
 }
