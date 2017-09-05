@@ -1,19 +1,11 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
-using AutoMapper;
-using CarWash.Persistence.Dtos;
-using CarWash.Persistence.Models;
-using CarWash.Persistence.UseCases.Mapping;
-using CarWash.Persistence.UseCases.WorkDays;
+using CarWash.Core.UseCases.WorkDays;
 using CarWash.Persistence;
 using CarWash.Persistence.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web;
 using CarWash.Persistence.UseCases.Reservations;
-using CarWash.Core.UseCases.WorkDays;
+using CarWash.Persistence.UseCases.WorkDays;
+using System.Reflection;
 
 namespace CarWash.App_Start
 {

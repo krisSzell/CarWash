@@ -8,7 +8,9 @@ namespace CarWash.Persistence.Dtos
 {
     public class ReservationDto
     {
+        public int ReservationId { get; set; }
         public Service Service { get; set; }
+        public Status Status { get; set; }
         public Date Date { get; set; }
         public string Username { get; set; }
     }

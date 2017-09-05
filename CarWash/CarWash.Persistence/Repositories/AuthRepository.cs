@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Security;
 
@@ -42,9 +43,9 @@ namespace CarWash.Persistence.Repositories
             return user;
         }
 
-        public async Task<ApplicationUser> FindUserByUsername(string username)
+        public ApplicationUser FindUserByUsername(string username)
         {
-            ApplicationUser user = await _userManager.FindByEmailAsync(username);
+            ApplicationUser user = _context.Users.SingleOrDefault(u => u.UserName == username);
 
             return user;
         }

@@ -2,12 +2,8 @@
 using CarWash.Persistence.Dtos;
 using CarWash.Persistence.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CarWash.Persistence.UseCases.Mapping
+namespace CarWash.Core.UseCases.Mapping
 {
     public class ReservationDtoToReservationConverter : ITypeConverter<ReservationDto, Reservation>
     {

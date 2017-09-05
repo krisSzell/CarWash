@@ -9,7 +9,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let reservation of unconfirmedReservations">
-          
+          <td>{{ reservation.username }}</td>
+          <td>{{ reservation.service.name }}</td>
+          <td>{{ reservation.date.toString() }}</td>
+          <td><button class="fa fa-thumbs-up"></button></td>
       </tr>
     </tbody>
 </table>

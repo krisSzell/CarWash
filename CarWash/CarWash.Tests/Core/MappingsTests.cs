@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CarWash.Persistence.Dtos;
 using CarWash.Persistence.Models;
-using CarWash.Persistence.UseCases.Mapping;
+using CarWash.Core.UseCases.Mapping;
 
 namespace CarWash.Tests.Core
 {
@@ -29,7 +29,6 @@ namespace CarWash.Tests.Core
                 Price = 15,
                 ServiceId = 2
             };
-            string userId = "aaa-aaa-aaa";
             Schedule schedule = new Schedule()
             {
                 StartDate = new DateTime(2017, 8, 31, 8, 30, 0),
@@ -40,15 +39,13 @@ namespace CarWash.Tests.Core
             ReservationDto = new ReservationDto()
             {
                 Date = date,
-                Service = service,
-                Username = userId
+                Service = service
             };
             Reservation = new Reservation()
             {
                 Service = service,
                 Status = new Status() { IsAccepted = false, IsArchived = false },
-                Schedule = schedule,
-                UserId = userId
+                Schedule = schedule
             };
         }
 
@@ -68,7 +65,6 @@ namespace CarWash.Tests.Core
             Assert.IsTrue(areServicesEqual(expected.Service, result.Service));
             Assert.AreEqual(expected.Status.IsAccepted, false);
             Assert.AreEqual(expected.Status.IsArchived, false);
-            Assert.AreEqual(expected.UserId, result.UserId);
         }
 
         private bool areSchedulesEqual(Schedule obj1, Schedule obj2)
