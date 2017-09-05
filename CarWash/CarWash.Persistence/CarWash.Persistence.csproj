@@ -135,6 +135,7 @@
     <Compile Include="Dtos\WorkDayDto.cs" />
     <Compile Include="IdentityConfig.cs" />
     <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="LoggingDbContext.cs" />
     <Compile Include="Migrations\201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.cs" />
     <Compile Include="Migrations\201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.Designer.cs">
       <DependentUpon>201708241637383_CreatedReservationsAndServiceModelsAndBoundThemOneToMany.cs</DependentUpon>
@@ -164,8 +165,14 @@
       <DependentUpon>201708301810167_AddedUserIdFieldToReservationModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\LoggingDbContext\201709052213318_AddedFullLogModel.cs" />
+    <Compile Include="Migrations\LoggingDbContext\201709052213318_AddedFullLogModel.Designer.cs">
+      <DependentUpon>201709052213318_AddedFullLogModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\LoggingDbContext\Configuration.cs" />
     <Compile Include="Models\Accounts\ApplicationUser.cs" />
     <Compile Include="Models\Accounts\RegisterModel.cs" />
+    <Compile Include="Models\Logging\FullLog.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Service.cs" />
@@ -207,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708301810167_AddedUserIdFieldToReservationModel.resx">
       <DependentUpon>201708301810167_AddedUserIdFieldToReservationModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\LoggingDbContext\201709052213318_AddedFullLogModel.resx">
+      <DependentUpon>201709052213318_AddedFullLogModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

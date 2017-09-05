@@ -7,10 +7,10 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
+        <li class="nav-item active" *ngIf="getCurrentUserRole() !== 'StaffMember'">
           <a class="nav-link" routerLink="">Rezerwacje <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item" *ngIf="isLoggedIn()">
+        <li class="nav-item" *ngIf="getCurrentUserRole() === 'Customer'">
           <a class="nav-link" routerLink="user/schedules">Moje terminy</a>
         </li>
       </ul>

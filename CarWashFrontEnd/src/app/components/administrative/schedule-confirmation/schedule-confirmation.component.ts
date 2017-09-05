@@ -8,11 +8,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ScheduleConfirmationComponent {
 
-  @Input('reservations') unconfirmedReservations;
+  @Input('reservations') unconfirmedReservations = [];
   @Output('confirmed') onConfirm: EventEmitter<any> = new EventEmitter();
 
-  constructor(private _reservationsService: ReservationsService) {
-  }
+  constructor(private _reservationsService: ReservationsService) { }
 
   confirmReservation(reservationId: number) {
     this._reservationsService.confirmReservation(reservationId)
@@ -32,5 +31,4 @@ export class ScheduleConfirmationComponent {
       () => this._reservationsService.getUnconfirmed()
         .subscribe(reservation => this.unconfirmedReservations = reservation));
   }
-
 }
