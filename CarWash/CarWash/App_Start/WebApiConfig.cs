@@ -1,10 +1,5 @@
 ﻿using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
-using System.Web.Http.Cors;
-using Microsoft.Owin.Cors;
 
 namespace CarWash
 {
@@ -12,10 +7,6 @@ namespace CarWash
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-            //var cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
-            //config.EnableCors(cors);
-
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;

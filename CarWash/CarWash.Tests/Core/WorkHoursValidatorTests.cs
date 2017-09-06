@@ -1,10 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using CarWash.Core.UseCases.WorkDays;
 using CarWash.Persistence.Models;
-using System.Collections.Generic;
-using CarWash.Core.UseCases.WorkDays;
-using Moq;
 using CarWash.Persistence.Repositories;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System;
+using System.Collections.Generic;
 
 namespace CarWash.Tests.Core
 {

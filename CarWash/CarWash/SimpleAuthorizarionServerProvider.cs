@@ -1,12 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Owin.Security.OAuth;
-using CarWash.Persistence.Repositories;
+﻿using CarWash.Persistence;
 using CarWash.Persistence.Models.Accounts;
-using System.Security.Claims;
+using CarWash.Persistence.Repositories;
+using Microsoft.Owin.Security.OAuth;
 using System.Linq;
-using CarWash.Persistence;
-using System.Web.Helpers;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace CarWash
 {

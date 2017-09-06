@@ -1,9 +1,6 @@
 ﻿using CarWash.Persistence.Models;
 using CarWash.Persistence.UseCases.WorkDays;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace CarWash.ViewModels
 {

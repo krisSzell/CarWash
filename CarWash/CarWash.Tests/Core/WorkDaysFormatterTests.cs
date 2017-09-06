@@ -1,10 +1,8 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using CarWash.ViewModels;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using CarWash.Persistence.Models;
 using CarWash.Persistence.UseCases.WorkDays;
-using CarWash.Persistence.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
 
 namespace CarWash.Tests.Core
 {

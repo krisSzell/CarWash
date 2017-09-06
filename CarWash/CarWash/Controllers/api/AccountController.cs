@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using System.Web.Http;
-using System.Web;
+﻿using CarWash.Persistence.Models.Accounts;
 using CarWash.Persistence.Repositories;
-using CarWash.Persistence.Models.Accounts;
+using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
-using System.Web.Security;
+using System.Web.Http;
 
 namespace CarWash.Controllers.api
 {

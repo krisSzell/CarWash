@@ -1,9 +1,6 @@
 namespace CarWash.Persistence.Migrations.LoggingDbContext
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<CarWash.Persistence.LoggingDbContext>
     {

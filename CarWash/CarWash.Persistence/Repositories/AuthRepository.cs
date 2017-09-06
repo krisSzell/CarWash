@@ -4,7 +4,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Security;
 
 namespace CarWash.Persistence.Repositories
 {

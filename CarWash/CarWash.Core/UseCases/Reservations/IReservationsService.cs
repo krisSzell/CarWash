@@ -1,10 +1,5 @@
-﻿using CarWash.Core.UseCases.Logging;
-using CarWash.Persistence.Dtos;
-using CarWash.Persistence.Models;
-using System;
+﻿using CarWash.Persistence.Models;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarWash.Persistence.UseCases.Reservations
 {

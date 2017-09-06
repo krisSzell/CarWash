@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using CarWash.Core.UseCases.Mapping;
 using CarWash.Persistence.Dtos;
 using CarWash.Persistence.Models;
-using CarWash.Core.UseCases.Mapping;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace CarWash.Tests.Core
 {

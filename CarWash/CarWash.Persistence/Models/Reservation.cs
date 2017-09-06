@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CarWash.Persistence.Models
+﻿namespace CarWash.Persistence.Models
 {
     public class Reservation
     {

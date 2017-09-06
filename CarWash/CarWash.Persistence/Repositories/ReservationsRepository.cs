@@ -1,10 +1,7 @@
-﻿using System;
+﻿using CarWash.Persistence.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CarWash.Persistence.Models;
 using System.Data.Entity;
+using System.Linq;
 
 namespace CarWash.Persistence.Repositories
 {

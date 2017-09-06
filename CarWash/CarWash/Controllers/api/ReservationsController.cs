@@ -4,12 +4,8 @@ using CarWash.Persistence.Dtos;
 using CarWash.Persistence.Models;
 using CarWash.Persistence.Repositories;
 using CarWash.Persistence.UseCases.Reservations;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 
